@@ -148,12 +148,13 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 .demo .busy.on{opacity:1;transform:translate(-50%,-50%)}
 .demo .busy i{width:1em;height:1em;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.demo .bar small.camb{border-radius:50%;outline:3px solid rgba(47,134,240,.45);outline-offset:3px;color:#2F86F0}
 .demo .saw .sawtext{font-size:.86em;margin-top:.25em;line-height:1.45}
 .demo .s2 .card{margin-top:.7em;padding:.7em .9em}.demo .s2 .opt{padding:.4em 0}.demo .s2 .btn{margin-top:.8em}
 .demo .s2{font-size:.92em}.demo .s2 .card{margin-top:.55em;padding:.6em .85em}.demo .s2 .opt{padding:.3em 0}.demo .s2 .opt small{display:none}
 .demo .saw .sawtext{font-size:.8em;line-height:1.42}
 .demo .s2 .btn{margin-top:.6em;padding:.6em}
+.demo .know .sawtext{color:#1F5FB8}
+@media(prefers-color-scheme:dark){.demo .know .sawtext{color:#8FC4FA}}
 </style>
 </head>
 <body>
@@ -166,12 +167,12 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
   <div class="demo" id="demo" aria-label="WDYT demo">
 <div class="screen">
  <div class="scene s0 on">
-  <div class="bar"><small class="camb">◎</small>幫我做決定<small>⚙</small></div>
+  <div class="bar">幫我做決定<small>⚙</small></div>
   <div class="sheet"><div class="hd">選一張照片<small>✓</small></div><div class="muted">菜單、商品、穿搭都行</div>
    <div class="grid"><div class="tile food"></div><div class="tile menu"><div class="chk">✓</div></div><div class="tile sky"></div><div class="tile dog"></div><div class="tile street"></div><div class="tile green"></div></div></div>
  </div>
  <div class="scene s1">
-  <div class="bar"><small>◎</small>幫我做決定<small>⚙</small></div>
+  <div class="bar">幫我做決定<small>⚙</small></div>
   <div class="card"><span class="thumb"></span><span class="muted">聽著呢…</span><div class="typed" data-text="我今天應該吃什麼……"></div></div>
   <div class="mic"><svg viewBox="0 0 24 24"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-5 5.92V20h3v2H8v-2h3v-3.08A6 6 0 0 1 6 11h2a4 4 0 0 0 8 0h2z"/></svg></div><div class="cap">放開結束</div>
   <div class="busy b1"><i></i>理解中…</div>
@@ -181,6 +182,7 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
   <div class="card"><div class="muted">Q</div><div style="font-weight:600">我今天應該吃菜單上的哪一道？</div></div>
   <div class="card"><div class="opt"><span>牛肉麵<br><small>$180 · 重口味</small></span><span class="x">✕</span></div><div class="opt"><span>雞肉飯<br><small>$120 · 蛋白質</small></span><span class="x">✕</span></div><div class="opt"><span>沙拉<br><small>$150 · 清淡高纖</small></span><span class="x">✕</span></div><div class="opt doomed"><span>咖哩豬排<br><small>$200 · 炸物</small></span><span class="x">✕</span></div><div class="opt"><span>都不適合<br><small></small></span><span class="x">✕</span></div></div>
   <div class="card saw"><div class="muted">我看到的</div><div class="sawtext">手寫菜單板，米白底、深棕字。四道主餐：牛肉麵 $180（紅燒湯頭、附滷蛋）、雞肉飯 $120（嘉義式、雞油淋飯）、沙拉 $150（生菜、小番茄、水煮蛋、油醋醬）、咖哩豬排 $200（炸豬排、日式咖哩）。右下角註明「加飯免費」。你說在減脂、今天想吃清淡。</div></div>
+  <div class="card saw know"><div class="muted">我知道的</div><div class="sawtext">identity.md：減脂中、不吃牛、偏好清淡 · soul.md：寧可少吃也不吃炸的</div></div>
   <div class="btn">確認並取得結果</div>
   <div class="busy b2"><i></i>決定中…</div>
  </div>
