@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build wdyt.app: index (en), zh/ (zh-Hant), cn/ (zh-Hans), privacy/, terms/, support/.
+"""Build wdytai.app: index (en), zh/ (zh-Hant), cn/ (zh-Hans), privacy/, terms/, support/.
 Layout mirrors fluentin.app / lossic.app: sticky nav, centred hero with h1 + badge + phone
 shot rotator, feature grid, numbered steps, confidence strip, privacy card, disclaimer, FAQ,
 bottom CTA, footer. CSS lives in scripts/_css.txt (fluentin's, re-tinted to the WDYT blue).
@@ -9,7 +9,7 @@ bottom CTA, footer. CSS lives in scripts/_css.txt (fluentin's, re-tinted to the 
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SITE = "https://wdyt.app"
+SITE = "https://wdytai.app"
 MAIL = "tautiu.dev+wdyt@gmail.com"
 LAST_UPDATED = "September 18, 2026"
 CSS = (ROOT / "scripts/_css.txt").read_text()
@@ -344,9 +344,7 @@ def main():
     ]:
         (ROOT / slug).mkdir(exist_ok=True)
         (ROOT / slug / "index.html").write_text(legal(slug, title, desc, body), encoding="utf-8")
-    # CNAME is written only once DNS points at GitHub Pages: python3 scripts/build.py --cname
-    import sys
-    if "--cname" in sys.argv: (ROOT / "CNAME").write_text("wdyt.app\n")
+    (ROOT / "CNAME").write_text("wdytai.app\n")
     print("built: index, zh, cn, privacy, terms, support")
 
 
