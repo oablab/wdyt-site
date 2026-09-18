@@ -48,7 +48,7 @@ T = {
        ("Is anything stored or shared?", "Everything stays on your phone: keys in the Keychain, the two profile files, your history. The only network calls are the two you initiate, from your phone directly to Google and OpenRouter under their privacy policies.")],
   cta_h="Stop overthinking lunch.", cta="Coming to the App Store",
   footer_privacy="Privacy", footer_terms="Terms", footer_support="Support",
-  demo=dict(title="WDYT", saw="What I picked up", sawText="Menu: beef noodles $180, chicken rice $120, salad $150, curry pork chop $200. You mentioned wanting something light.", pick="Choose a photo", pickHint="Menus, products, outfits", understanding="Understanding…", deciding="Deciding…", listening="Listening…", typed="what should I eat today…", cap="Release to finish",
+  demo=dict(title="WDYT", saw="What I picked up", sawText="Handwritten menu board, cream background, dark-brown lettering. Four mains: beef noodles $180 (braised broth, comes with a soy egg), chicken rice $120 (Chiayi style, chicken oil over rice), salad $150 (lettuce, cherry tomatoes, boiled egg, vinaigrette), curry pork chop $200 (deep-fried cutlet, Japanese curry). Note bottom-right: free extra rice. You said you're cutting weight and want something light today.", pick="Choose a photo", pickHint="Menus, products, outfits", understanding="Understanding…", deciding="Deciding…", listening="Listening…", typed="what should I eat today…", cap="Release to finish",
             understood="Here's what I think you're asking", q="Which dish on this menu should I have today?",
             opts=[("Beef noodles","$180 · rich broth"),("Chicken rice","$120 · lean protein"),("Salad","$150 · light, high fibre"),("Curry pork chop","$200 · fried"),("None of these","")],
             doomed=3, confirm="Confirm and get the answer", answer="Salad", conf="confidence 92%",
@@ -87,7 +87,7 @@ T = {
        ("有東西被儲存或分享嗎？", "全部留在你手機上：金鑰在 Keychain、兩個檔案、歷史紀錄。唯二的網路連線是你自己發起的那兩次，從你的手機直接到 Google 和 OpenRouter，受它們各自的隱私政策規範。")],
   cta_h="午餐別再想三十分鐘了。", cta="即將上架 App Store",
   footer_privacy="隱私政策", footer_terms="使用條款", footer_support="支援",
-  demo=dict(title="幫我做決定", saw="我看到的", sawText="菜單：牛肉麵 $180、雞肉飯 $120、沙拉 $150、咖哩豬排 $200。你說今天想吃清淡。", pick="選一張照片", pickHint="菜單、商品、穿搭都行", understanding="理解中…", deciding="決定中…", listening="聽著呢…", typed="我今天應該吃什麼……", cap="放開結束",
+  demo=dict(title="幫我做決定", saw="我看到的", sawText="手寫菜單板，米白底、深棕字。四道主餐：牛肉麵 $180（紅燒湯頭、附滷蛋）、雞肉飯 $120（嘉義式、雞油淋飯）、沙拉 $150（生菜、小番茄、水煮蛋、油醋醬）、咖哩豬排 $200（炸豬排、日式咖哩）。右下角註明「加飯免費」。你說在減脂、今天想吃清淡。", pick="選一張照片", pickHint="菜單、商品、穿搭都行", understanding="理解中…", deciding="決定中…", listening="聽著呢…", typed="我今天應該吃什麼……", cap="放開結束",
             understood="我理解你想問的是", q="我今天應該吃菜單上的哪一道？",
             opts=[("牛肉麵","$180 · 重口味"),("雞肉飯","$120 · 蛋白質"),("沙拉","$150 · 清淡高纖"),("咖哩豬排","$200 · 炸物"),("都不適合","")],
             doomed=3, confirm="確認並取得結果", answer="沙拉", conf="信心 92%",
@@ -126,7 +126,7 @@ T = {
        ("有东西被存储或分享吗？", "全部留在你手机上：密钥在 Keychain、两个文件、历史记录。仅有的网络连接是你自己发起的那两次，从你的手机直接到 Google 和 OpenRouter，受它们各自的隐私政策约束。")],
   cta_h="午餐别再想三十分钟了。", cta="即将上架 App Store",
   footer_privacy="隐私政策", footer_terms="使用条款", footer_support="支持",
-  demo=dict(title="帮我拿主意", saw="我看到的", sawText="菜单：牛肉面 $180、鸡肉饭 $120、沙拉 $150、咖喱猪排 $200。你说今天想吃清淡。", pick="选一张照片", pickHint="菜单、商品、穿搭都行", understanding="理解中…", deciding="决定中…", listening="听着呢…", typed="我今天应该吃什么……", cap="松开结束",
+  demo=dict(title="帮我拿主意", saw="我看到的", sawText="手写菜单板，米白底、深棕字。四道主餐：牛肉面 $180（红烧汤头、附卤蛋）、鸡肉饭 $120（嘉义式、鸡油淋饭）、沙拉 $150（生菜、小番茄、水煮蛋、油醋汁）、咖喱猪排 $200（炸猪排、日式咖喱）。右下角注明「加饭免费」。你说在减脂、今天想吃清淡。", pick="选一张照片", pickHint="菜单、商品、穿搭都行", understanding="理解中…", deciding="决定中…", listening="听着呢…", typed="我今天应该吃什么……", cap="松开结束",
             understood="我理解你想问的是", q="我今天应该吃菜单上的哪一道？",
             opts=[("牛肉面","$180 · 重口味"),("鸡肉饭","$120 · 蛋白质"),("沙拉","$150 · 清淡高纤"),("咖喱猪排","$200 · 炸物"),("都不合适","")],
             doomed=3, confirm="确认并获取结果", answer="沙拉", conf="信心 92%",
@@ -173,12 +173,12 @@ def demo(d):
     return f"""<div class="demo" id="demo" aria-label="WDYT demo">
 <div class="screen">
  <div class="scene s0 on">
-  <div class="bar">{html.escape(d['title'])}<small>⚙</small></div><div class="cam">📷</div>
+  <div class="bar"><small class="camb">◎</small>{html.escape(d['title'])}<small>⚙</small></div>
   <div class="sheet"><div class="hd">{html.escape(d['pick'])}<small>✓</small></div><div class="muted">{html.escape(d['pickHint'])}</div>
    <div class="grid"><div class="tile food"></div><div class="tile menu"><div class="chk">✓</div></div><div class="tile sky"></div><div class="tile dog"></div><div class="tile street"></div><div class="tile green"></div></div></div>
  </div>
  <div class="scene s1">
-  <div class="bar">{html.escape(d['title'])}<small>⚙</small></div>
+  <div class="bar"><small>◎</small>{html.escape(d['title'])}<small>⚙</small></div>
   <div class="card"><span class="thumb"></span><span class="muted">{html.escape(d['listening'])}</span><div class="typed" data-text="{html.escape(d['typed'])}"></div></div>
   <div class="mic">{MIC_SVG}</div><div class="cap">{html.escape(d['cap'])}</div>
   <div class="busy b1"><i></i>{html.escape(d['understanding'])}</div>

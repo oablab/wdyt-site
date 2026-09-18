@@ -148,10 +148,12 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 .demo .busy.on{opacity:1;transform:translate(-50%,-50%)}
 .demo .busy i{width:1em;height:1em;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.demo .cam{position:absolute;left:1.2em;top:1.5em;width:2.2em;height:2.2em;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;font-size:1em}
-.demo .s0.on .cam{outline:3px solid rgba(47,134,240,.5);outline-offset:2px}
+.demo .bar small.camb{border-radius:50%;outline:3px solid rgba(47,134,240,.45);outline-offset:3px;color:#2F86F0}
 .demo .saw .sawtext{font-size:.86em;margin-top:.25em;line-height:1.45}
 .demo .s2 .card{margin-top:.7em;padding:.7em .9em}.demo .s2 .opt{padding:.4em 0}.demo .s2 .btn{margin-top:.8em}
+.demo .s2{font-size:.92em}.demo .s2 .card{margin-top:.55em;padding:.6em .85em}.demo .s2 .opt{padding:.3em 0}.demo .s2 .opt small{display:none}
+.demo .saw .sawtext{font-size:.8em;line-height:1.42}
+.demo .s2 .btn{margin-top:.6em;padding:.6em}
 </style>
 </head>
 <body>
@@ -164,12 +166,12 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
   <div class="demo" id="demo" aria-label="WDYT demo">
 <div class="screen">
  <div class="scene s0 on">
-  <div class="bar">WDYT<small>⚙</small></div><div class="cam">📷</div>
+  <div class="bar"><small class="camb">◎</small>WDYT<small>⚙</small></div>
   <div class="sheet"><div class="hd">Choose a photo<small>✓</small></div><div class="muted">Menus, products, outfits</div>
    <div class="grid"><div class="tile food"></div><div class="tile menu"><div class="chk">✓</div></div><div class="tile sky"></div><div class="tile dog"></div><div class="tile street"></div><div class="tile green"></div></div></div>
  </div>
  <div class="scene s1">
-  <div class="bar">WDYT<small>⚙</small></div>
+  <div class="bar"><small>◎</small>WDYT<small>⚙</small></div>
   <div class="card"><span class="thumb"></span><span class="muted">Listening…</span><div class="typed" data-text="what should I eat today…"></div></div>
   <div class="mic"><svg viewBox="0 0 24 24"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-5 5.92V20h3v2H8v-2h3v-3.08A6 6 0 0 1 6 11h2a4 4 0 0 0 8 0h2z"/></svg></div><div class="cap">Release to finish</div>
   <div class="busy b1"><i></i>Understanding…</div>
@@ -178,7 +180,7 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
   <div class="bar"><small>‹</small>Here&#x27;s what I think you&#x27;re asking<small></small></div>
   <div class="card"><div class="muted">Q</div><div style="font-weight:600">Which dish on this menu should I have today?</div></div>
   <div class="card"><div class="opt"><span>Beef noodles<br><small>$180 · rich broth</small></span><span class="x">✕</span></div><div class="opt"><span>Chicken rice<br><small>$120 · lean protein</small></span><span class="x">✕</span></div><div class="opt"><span>Salad<br><small>$150 · light, high fibre</small></span><span class="x">✕</span></div><div class="opt doomed"><span>Curry pork chop<br><small>$200 · fried</small></span><span class="x">✕</span></div><div class="opt"><span>None of these<br><small></small></span><span class="x">✕</span></div></div>
-  <div class="card saw"><div class="muted">What I picked up</div><div class="sawtext">Menu: beef noodles $180, chicken rice $120, salad $150, curry pork chop $200. You mentioned wanting something light.</div></div>
+  <div class="card saw"><div class="muted">What I picked up</div><div class="sawtext">Handwritten menu board, cream background, dark-brown lettering. Four mains: beef noodles $180 (braised broth, comes with a soy egg), chicken rice $120 (Chiayi style, chicken oil over rice), salad $150 (lettuce, cherry tomatoes, boiled egg, vinaigrette), curry pork chop $200 (deep-fried cutlet, Japanese curry). Note bottom-right: free extra rice. You said you&#x27;re cutting weight and want something light today.</div></div>
   <div class="btn">Confirm and get the answer</div>
   <div class="busy b2"><i></i>Deciding…</div>
  </div>
