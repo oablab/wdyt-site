@@ -48,7 +48,7 @@ T = {
        ("Is anything stored or shared?", "Everything stays on your phone: keys in the Keychain, the two profile files, your history. The only network calls are the two you initiate, from your phone directly to Google and OpenRouter under their privacy policies.")],
   cta_h="Stop overthinking lunch.", cta="Coming to the App Store",
   footer_privacy="Privacy", footer_terms="Terms", footer_support="Support",
-  demo=dict(title="WDYT", listening="Listening…", typed="what should I eat today…", cap="Release to finish",
+  demo=dict(title="WDYT", saw="What I picked up", sawText="Menu: beef noodles $180, chicken rice $120, salad $150, curry pork chop $200. You mentioned wanting something light.", pick="Choose a photo", pickHint="Menus, products, outfits", understanding="Understanding…", deciding="Deciding…", listening="Listening…", typed="what should I eat today…", cap="Release to finish",
             understood="Here's what I think you're asking", q="Which dish on this menu should I have today?",
             opts=[("Beef noodles","$180 · rich broth"),("Chicken rice","$120 · lean protein"),("Salad","$150 · light, high fibre"),("Curry pork chop","$200 · fried"),("None of these","")],
             doomed=3, confirm="Confirm and get the answer", answer="Salad", conf="confidence 92%",
@@ -87,7 +87,7 @@ T = {
        ("有東西被儲存或分享嗎？", "全部留在你手機上：金鑰在 Keychain、兩個檔案、歷史紀錄。唯二的網路連線是你自己發起的那兩次，從你的手機直接到 Google 和 OpenRouter，受它們各自的隱私政策規範。")],
   cta_h="午餐別再想三十分鐘了。", cta="即將上架 App Store",
   footer_privacy="隱私政策", footer_terms="使用條款", footer_support="支援",
-  demo=dict(title="幫我做決定", listening="聽著呢…", typed="我今天應該吃什麼……", cap="放開結束",
+  demo=dict(title="幫我做決定", saw="我看到的", sawText="菜單：牛肉麵 $180、雞肉飯 $120、沙拉 $150、咖哩豬排 $200。你說今天想吃清淡。", pick="選一張照片", pickHint="菜單、商品、穿搭都行", understanding="理解中…", deciding="決定中…", listening="聽著呢…", typed="我今天應該吃什麼……", cap="放開結束",
             understood="我理解你想問的是", q="我今天應該吃菜單上的哪一道？",
             opts=[("牛肉麵","$180 · 重口味"),("雞肉飯","$120 · 蛋白質"),("沙拉","$150 · 清淡高纖"),("咖哩豬排","$200 · 炸物"),("都不適合","")],
             doomed=3, confirm="確認並取得結果", answer="沙拉", conf="信心 92%",
@@ -126,7 +126,7 @@ T = {
        ("有东西被存储或分享吗？", "全部留在你手机上：密钥在 Keychain、两个文件、历史记录。仅有的网络连接是你自己发起的那两次，从你的手机直接到 Google 和 OpenRouter，受它们各自的隐私政策约束。")],
   cta_h="午餐别再想三十分钟了。", cta="即将上架 App Store",
   footer_privacy="隐私政策", footer_terms="使用条款", footer_support="支持",
-  demo=dict(title="帮我拿主意", listening="听着呢…", typed="我今天应该吃什么……", cap="松开结束",
+  demo=dict(title="帮我拿主意", saw="我看到的", sawText="菜单：牛肉面 $180、鸡肉饭 $120、沙拉 $150、咖喱猪排 $200。你说今天想吃清淡。", pick="选一张照片", pickHint="菜单、商品、穿搭都行", understanding="理解中…", deciding="决定中…", listening="听着呢…", typed="我今天应该吃什么……", cap="松开结束",
             understood="我理解你想问的是", q="我今天应该吃菜单上的哪一道？",
             opts=[("牛肉面","$180 · 重口味"),("鸡肉饭","$120 · 蛋白质"),("沙拉","$150 · 清淡高纤"),("咖喱猪排","$200 · 炸物"),("都不合适","")],
             doomed=3, confirm="确认并获取结果", answer="沙拉", conf="信心 92%",
@@ -172,16 +172,24 @@ def demo(d):
     probs = "".join(f'<div class="prob"><span>{html.escape(l)}</span><i style="--w:{p}%"></i><b>{p}%</b></div>' for l, p in d["probs"])
     return f"""<div class="demo" id="demo" aria-label="WDYT demo">
 <div class="screen">
- <div class="scene s1 on">
+ <div class="scene s0 on">
+  <div class="bar">{html.escape(d['title'])}<small>⚙</small></div><div class="cam">📷</div>
+  <div class="sheet"><div class="hd">{html.escape(d['pick'])}<small>✓</small></div><div class="muted">{html.escape(d['pickHint'])}</div>
+   <div class="grid"><div class="tile food"></div><div class="tile menu"><div class="chk">✓</div></div><div class="tile sky"></div><div class="tile dog"></div><div class="tile street"></div><div class="tile green"></div></div></div>
+ </div>
+ <div class="scene s1">
   <div class="bar">{html.escape(d['title'])}<small>⚙</small></div>
   <div class="card"><span class="thumb"></span><span class="muted">{html.escape(d['listening'])}</span><div class="typed" data-text="{html.escape(d['typed'])}"></div></div>
   <div class="mic">{MIC_SVG}</div><div class="cap">{html.escape(d['cap'])}</div>
+  <div class="busy b1"><i></i>{html.escape(d['understanding'])}</div>
  </div>
  <div class="scene s2">
   <div class="bar"><small>‹</small>{html.escape(d['understood'])}<small></small></div>
   <div class="card"><div class="muted">Q</div><div style="font-weight:600">{html.escape(d['q'])}</div></div>
   <div class="card">{opts}</div>
+  <div class="card saw"><div class="muted">{html.escape(d["saw"])}</div><div class="sawtext">{html.escape(d['sawText'])}</div></div>
   <div class="btn">{html.escape(d['confirm'])}</div>
+  <div class="busy b2"><i></i>{html.escape(d['deciding'])}</div>
  </div>
  <div class="scene s3">
   <div class="bar"><small>‹</small><small></small></div>
@@ -190,9 +198,9 @@ def demo(d):
   <div class="card">{probs}</div>
   <div class="why">{html.escape(d['why'])}</div>
  </div>
- <div class="dots"><i class="on"></i><i></i><i></i></div>
+ <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
 </div></div>
-<script>(function(){{var r=document.getElementById("demo");if(!r)return;var S=r.querySelectorAll(".scene"),D=r.querySelectorAll(".dots i"),typed=r.querySelector(".typed"),doomed=r.querySelector(".opt.doomed"),btn=r.querySelector(".btn"),txt=typed.getAttribute("data-text");var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;function go(k){{S.forEach(function(s,i){{s.classList.toggle("on",i===k)}});D.forEach(function(d,i){{d.classList.toggle("on",i===k)}})}}if(rm){{typed.textContent=txt;go(2);return}}var T=[];function at(ms,f){{T.push(setTimeout(f,ms))}}function run(){{T.forEach(clearTimeout);T=[];typed.textContent="";doomed.classList.remove("gone");btn.classList.remove("press");go(0);var i=0;function type(){{if(i<txt.length){{typed.textContent+=txt[i++];at(90,type)}}}}at(700,type);at(3600,function(){{go(1)}});at(5600,function(){{doomed.classList.add("gone")}});at(6900,function(){{btn.classList.add("press")}});at(7200,function(){{go(2)}});at(12500,run)}}run();D.forEach(function(d,k){{d.style.cursor="pointer";d.addEventListener("click",function(){{T.forEach(clearTimeout);typed.textContent=txt;doomed.classList.toggle("gone",k>=1);go(k);at(6000,run)}})}})}})();</script>"""
+<script>(function(){{var r=document.getElementById("demo");if(!r)return;var S=r.querySelectorAll(".scene"),D=r.querySelectorAll(".dots i"),typed=r.querySelector(".typed"),doomed=r.querySelector(".opt.doomed"),btn=r.querySelector(".btn"),b1=r.querySelector(".b1"),b2=r.querySelector(".b2"),mic=r.querySelector(".mic"),txt=typed.getAttribute("data-text");var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;function go(k){{S.forEach(function(s,i){{s.classList.toggle("on",i===k)}});D.forEach(function(d,i){{d.classList.toggle("on",i===k)}})}}if(rm){{typed.textContent=txt;go(3);return}}var T=[];function at(ms,f){{T.push(setTimeout(f,ms))}}function reset(){{T.forEach(clearTimeout);T=[];typed.textContent="";doomed.classList.remove("gone");btn.classList.remove("press");b1.classList.remove("on");b2.classList.remove("on");mic.classList.remove("idle")}}function run(){{reset();go(0);at(2600,function(){{go(1)}});var i=0;function type(){{if(i<txt.length){{typed.textContent+=txt[i++];at(85,type)}}}}at(3500,type);at(6300,function(){{mic.classList.add("idle");b1.classList.add("on")}});at(7500,function(){{go(2)}});at(9400,function(){{doomed.classList.add("gone")}});at(10600,function(){{btn.classList.add("press")}});at(10900,function(){{b2.classList.add("on")}});at(11700,function(){{go(3)}});at(17000,run)}}run();D.forEach(function(d,k){{d.style.cursor="pointer";d.addEventListener("click",function(){{reset();typed.textContent=k>=1?txt:"";doomed.classList.toggle("gone",k>=2);go(k);at(6000,run)}})}})}})();</script>"""
 
 
 def cta_link(t):
