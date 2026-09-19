@@ -48,7 +48,20 @@ T = {
        ("Is anything stored or shared?", "Everything stays on your phone: keys in the Keychain, the two profile files, your history. The only network calls are the two you initiate, from your phone directly to Google and OpenRouter under their privacy policies.")],
   cta_h="Stop overthinking lunch.", cta="Coming to the App Store",
   footer_privacy="Privacy", footer_terms="Terms", footer_support="Support",
-  demo=dict(title="WDYT", camTitle="Take a photo", camHint="Frame the menu", menuTitle="TODAY'S MENU", menuPlace="Corner Diner · Breakfast & Lunch", know="What I know about you", knowText="identity.md: cutting weight, no beef, prefers light meals · soul.md: would rather eat less than eat fried food", saw="What I picked up", sawText="Handwritten menu board, cream background, dark-brown lettering. Four mains: beef noodles $180 (braised broth, comes with a soy egg), chicken rice $120 (Chiayi style, chicken oil over rice), salad $150 (lettuce, cherry tomatoes, boiled egg, vinaigrette), curry pork chop $200 (deep-fried cutlet, Japanese curry). Note bottom-right: free extra rice. You said you're cutting weight and want something light today.", pick="Choose a photo", pickHint="Menus, products, outfits", understanding="Understanding…", deciding="Deciding…", listening="Listening…", typed="what should I eat today…", cap="Release to finish",
+  demo=dict(title="WDYT", storyTabs=["Menu","Outfit","Gym"],
+  outfit=dict(pick="Add photos", pickHint="Up to three", garments=[("Navy blazer","navy"),("Beige knit","beige"),("Black dress","black")],
+       typed="which one for tomorrow's interview…", understood="Here's what I think you're asking", q="Which outfit should I wear to tomorrow's interview?",
+       opts=[("Navy blazer","$— · formal, sharp"),("Beige knit","$— · soft, approachable"),("Black dress","$— · elegant, simple"),("None of these","")], doomed=None,
+       saw="What I picked up", sawText="Three photos on a bed: a navy single-breasted blazer with a white shirt, slim fit; an oversized beige ribbed knit; a black knee-length sheath dress. You said the interview is at a design studio.",
+       know="What I know about you", knowText="identity.md: product designer · soul.md: would rather look understated than overdressed",
+       confirm="Confirm and get the answer", answer="Navy blazer", conf="confidence 78%", probs=[("Navy blazer",78),("Black dress",15),("Beige knit",7),("None of these",0)],
+       why="Formal enough for a first meeting, but the shirt-and-blazer keeps it understated — closest to how you like to look."),
+  gym=dict(typed="should I go to the gym today or not…", understood="Here's what I think you're asking", q="Should I go to the gym today?",
+       know="What I know about you", knowText="identity.md: aiming for three workouts a week, two done so far · soul.md: values consistency over intensity",
+       confirm="Confirm and get the answer", answer="Leaning yes", conf="confidence 10%", probs=[("Yes",55),("No",45)],
+       low="Not sure — this one is close to a coin flip.", why="Probability of yes: 55%. Two of three sessions done; nothing in what you said tips it.",
+       reask="Ask again with this", extra="I'm travelling the next three days", answer2="Yes — go today", conf2="confidence 76%", probs2=[("Yes",88),("No",12)],
+       why2="Probability of yes: 88%. Today is the last chance for the third session this week."), camTitle="Take a photo", camHint="Frame the menu", menuTitle="TODAY'S MENU", menuPlace="Corner Diner · Breakfast & Lunch", know="What I know about you", knowText="identity.md: cutting weight, no beef, prefers light meals · soul.md: would rather eat less than eat fried food", saw="What I picked up", sawText="Handwritten menu board, cream background, dark-brown lettering. Four mains: beef noodles $180 (braised broth, comes with a soy egg), chicken rice $120 (Chiayi style, chicken oil over rice), salad $150 (lettuce, cherry tomatoes, boiled egg, vinaigrette), curry pork chop $200 (deep-fried cutlet, Japanese curry). Note bottom-right: free extra rice. You said you're cutting weight and want something light today.", pick="Choose a photo", pickHint="Menus, products, outfits", understanding="Understanding…", deciding="Deciding…", listening="Listening…", typed="what should I eat today…", cap="Release to finish",
             understood="Here's what I think you're asking", q="Which dish on this menu should I have today?",
             opts=[("Beef noodles","$180 · rich broth"),("Chicken rice","$120 · lean protein"),("Salad","$150 · light, high fibre"),("Curry pork chop","$200 · fried"),("None of these","")],
             doomed=3, confirm="Confirm and get the answer", answer="Salad", conf="confidence 92%",
@@ -87,7 +100,20 @@ T = {
        ("有東西被儲存或分享嗎？", "全部留在你手機上：金鑰在 Keychain、兩個檔案、歷史紀錄。唯二的網路連線是你自己發起的那兩次，從你的手機直接到 Google 和 OpenRouter，受它們各自的隱私政策規範。")],
   cta_h="午餐別再想三十分鐘了。", cta="即將上架 App Store",
   footer_privacy="隱私政策", footer_terms="使用條款", footer_support="支援",
-  demo=dict(title="幫我做決定", camTitle="拍照", camHint="對準菜單", menuTitle="今日菜單", menuPlace="巷口小館 · 早午餐", know="我知道的", knowText="identity.md：減脂中、不吃牛、偏好清淡 · soul.md：寧可少吃也不吃炸的", saw="我看到的", sawText="手寫菜單板，米白底、深棕字。四道主餐：牛肉麵 $180（紅燒湯頭、附滷蛋）、雞肉飯 $120（嘉義式、雞油淋飯）、沙拉 $150（生菜、小番茄、水煮蛋、油醋醬）、咖哩豬排 $200（炸豬排、日式咖哩）。右下角註明「加飯免費」。你說在減脂、今天想吃清淡。", pick="選一張照片", pickHint="菜單、商品、穿搭都行", understanding="理解中…", deciding="決定中…", listening="聽著呢…", typed="我今天應該吃什麼……", cap="放開結束",
+  demo=dict(title="幫我做決定", storyTabs=["菜單","穿搭","健身房"],
+  outfit=dict(pick="加照片", pickHint="最多三張", garments=[("深藍西裝外套","navy"),("米色針織","beige"),("黑色洋裝","black")],
+       typed="明天面試穿哪一套……", understood="我理解你想問的是", q="明天面試我應該穿哪一套？",
+       opts=[("深藍西裝外套","正式、俐落"),("米色針織","柔和、親切"),("黑色洋裝","優雅、簡單"),("都不適合","")], doomed=None,
+       saw="我看到的", sawText="床上三張照片：深藍單排扣西裝外套配白襯衫，合身版型；米色寬鬆羅紋針織衫；黑色及膝合身洋裝。你說面試地點是設計工作室。",
+       know="我知道的", knowText="identity.md：產品設計師 · soul.md：寧可低調也不要過度打扮",
+       confirm="確認並取得結果", answer="深藍西裝外套", conf="信心 78%", probs=[("深藍西裝外套",78),("黑色洋裝",15),("米色針織",7),("都不適合",0)],
+       why="第一次見面夠正式，襯衫加外套又不會太隆重——最接近你喜歡的樣子。"),
+  gym=dict(typed="我今天到底要不要去健身房……", understood="我理解你想問的是", q="我今天應該去健身房嗎？",
+       know="我知道的", knowText="identity.md：目標每週運動三次，這週已做兩次 · soul.md：重視持續勝過強度",
+       confirm="確認並取得結果", answer="傾向：是", conf="信心 10%", probs=[("是",55),("否",45)],
+       low="不太確定——這題接近五五波。", why="「是」的機率 55%。三次做了兩次，你說的話裡沒有什麼能推向任一邊。",
+       reask="帶這句再問一次", extra="接下來三天要出差", answer2="是——今天去", conf2="信心 76%", probs2=[("是",88),("否",12)],
+       why2="「是」的機率 88%。今天是這週補上第三次的最後機會。"), camTitle="拍照", camHint="對準菜單", menuTitle="今日菜單", menuPlace="巷口小館 · 早午餐", know="我知道的", knowText="identity.md：減脂中、不吃牛、偏好清淡 · soul.md：寧可少吃也不吃炸的", saw="我看到的", sawText="手寫菜單板，米白底、深棕字。四道主餐：牛肉麵 $180（紅燒湯頭、附滷蛋）、雞肉飯 $120（嘉義式、雞油淋飯）、沙拉 $150（生菜、小番茄、水煮蛋、油醋醬）、咖哩豬排 $200（炸豬排、日式咖哩）。右下角註明「加飯免費」。你說在減脂、今天想吃清淡。", pick="選一張照片", pickHint="菜單、商品、穿搭都行", understanding="理解中…", deciding="決定中…", listening="聽著呢…", typed="我今天應該吃什麼……", cap="放開結束",
             understood="我理解你想問的是", q="我今天應該吃菜單上的哪一道？",
             opts=[("牛肉麵","$180 · 重口味"),("雞肉飯","$120 · 蛋白質"),("沙拉","$150 · 清淡高纖"),("咖哩豬排","$200 · 炸物"),("都不適合","")],
             doomed=3, confirm="確認並取得結果", answer="沙拉", conf="信心 92%",
@@ -126,7 +152,20 @@ T = {
        ("有东西被存储或分享吗？", "全部留在你手机上：密钥在 Keychain、两个文件、历史记录。仅有的网络连接是你自己发起的那两次，从你的手机直接到 Google 和 OpenRouter，受它们各自的隐私政策约束。")],
   cta_h="午餐别再想三十分钟了。", cta="即将上架 App Store",
   footer_privacy="隐私政策", footer_terms="使用条款", footer_support="支持",
-  demo=dict(title="帮我拿主意", camTitle="拍照", camHint="对准菜单", menuTitle="今日菜单", menuPlace="巷口小馆 · 早午餐", know="我知道的", knowText="identity.md：减脂中、不吃牛、偏好清淡 · soul.md：宁可少吃也不吃炸的", saw="我看到的", sawText="手写菜单板，米白底、深棕字。四道主餐：牛肉面 $180（红烧汤头、附卤蛋）、鸡肉饭 $120（嘉义式、鸡油淋饭）、沙拉 $150（生菜、小番茄、水煮蛋、油醋汁）、咖喱猪排 $200（炸猪排、日式咖喱）。右下角注明「加饭免费」。你说在减脂、今天想吃清淡。", pick="选一张照片", pickHint="菜单、商品、穿搭都行", understanding="理解中…", deciding="决定中…", listening="听着呢…", typed="我今天应该吃什么……", cap="松开结束",
+  demo=dict(title="帮我拿主意", storyTabs=["菜单","穿搭","健身房"],
+  outfit=dict(pick="加照片", pickHint="最多三张", garments=[("深蓝西装外套","navy"),("米色针织","beige"),("黑色连衣裙","black")],
+       typed="明天面试穿哪一套……", understood="我理解你想问的是", q="明天面试我应该穿哪一套？",
+       opts=[("深蓝西装外套","正式、利落"),("米色针织","柔和、亲切"),("黑色连衣裙","优雅、简单"),("都不合适","")], doomed=None,
+       saw="我看到的", sawText="床上三张照片：深蓝单排扣西装外套配白衬衫，合身版型；米色宽松罗纹针织衫；黑色及膝合身连衣裙。你说面试地点是设计工作室。",
+       know="我知道的", knowText="identity.md：产品设计师 · soul.md：宁可低调也不要过度打扮",
+       confirm="确认并获取结果", answer="深蓝西装外套", conf="信心 78%", probs=[("深蓝西装外套",78),("黑色连衣裙",15),("米色针织",7),("都不合适",0)],
+       why="第一次见面够正式，衬衫加外套又不会太隆重——最接近你喜欢的样子。"),
+  gym=dict(typed="我今天到底要不要去健身房……", understood="我理解你想问的是", q="我今天应该去健身房吗？",
+       know="我知道的", knowText="identity.md：目标每周运动三次，这周已做两次 · soul.md：重视持续胜过强度",
+       confirm="确认并获取结果", answer="倾向：是", conf="信心 10%", probs=[("是",55),("否",45)],
+       low="不太确定——这题接近五五开。", why="「是」的概率 55%。三次做了两次，你说的话里没有什么能推向任一边。",
+       reask="带这句再问一次", extra="接下来三天要出差", answer2="是——今天去", conf2="信心 76%", probs2=[("是",88),("否",12)],
+       why2="「是」的概率 88%。今天是这周补上第三次的最后机会。"), camTitle="拍照", camHint="对准菜单", menuTitle="今日菜单", menuPlace="巷口小馆 · 早午餐", know="我知道的", knowText="identity.md：减脂中、不吃牛、偏好清淡 · soul.md：宁可少吃也不吃炸的", saw="我看到的", sawText="手写菜单板，米白底、深棕字。四道主餐：牛肉面 $180（红烧汤头、附卤蛋）、鸡肉饭 $120（嘉义式、鸡油淋饭）、沙拉 $150（生菜、小番茄、水煮蛋、油醋汁）、咖喱猪排 $200（炸猪排、日式咖喱）。右下角注明「加饭免费」。你说在减脂、今天想吃清淡。", pick="选一张照片", pickHint="菜单、商品、穿搭都行", understanding="理解中…", deciding="决定中…", listening="听着呢…", typed="我今天应该吃什么……", cap="松开结束",
             understood="我理解你想问的是", q="我今天应该吃菜单上的哪一道？",
             opts=[("牛肉面","$180 · 重口味"),("鸡肉饭","$120 · 蛋白质"),("沙拉","$150 · 清淡高纤"),("咖喱猪排","$200 · 炸物"),("都不合适","")],
             doomed=3, confirm="确认并获取结果", answer="沙拉", conf="信心 92%",
@@ -166,51 +205,115 @@ def nav(t, key):
 MIC_SVG = '<svg viewBox="0 0 24 24"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-5 5.92V20h3v2H8v-2h3v-3.08A6 6 0 0 1 6 11h2a4 4 0 0 0 8 0h2z"/></svg>'
 
 
-def demo(d):
-    """Three-scene phone animation: record → understand/edit → decide. Text in the page language."""
+def _bar(title, back=False):
+    left = '<small>‹</small>' if back else ''
+    return f'<div class="bar">{left}{html.escape(title)}<small>{"" if back else "⚙"}</small></div>'
+
+def _opts(opts, doomed):
+    return "".join(f'<div class="opt{" doomed" if i == doomed else ""}"><span>{html.escape(l)}<br><small>{html.escape(sub)}</small></span><span class="x">×</span></div>' for i, (l, sub) in enumerate(opts))
+
+def _probs(probs):
+    return "".join(f'<div class="prob"><span>{html.escape(l)}</span><i style="--w:{p}%"></i><b>{p}%</b></div>' for l, p in probs)
+
+def _talk(d, title, typed, thumb_html, listening, cap, understanding):
+    return f"""<div class="scene s1">
+  {_bar(title)}
+  <div class="card">{thumb_html}<span class="muted">{html.escape(listening)}</span><div class="typed" data-text="{html.escape(typed)}"></div></div>
+  <div class="mic">{MIC_SVG}</div><div class="cap">{html.escape(cap)}</div>
+  <div class="busy b1"><i></i>{html.escape(understanding)}</div>
+ </div>"""
+
+def _confirm(understood, q, opts_html, saw, sawText, know, knowText, confirm, deciding):
+    saw_html = f'<div class="card saw"><div class="muted">{html.escape(saw)}</div><div class="sawtext">{html.escape(sawText)}</div></div>' if saw else ''
+    return f"""<div class="scene s2">
+  {_bar(understood, back=True)}
+  <div class="card"><div class="muted">Q</div><div style="font-weight:600">{html.escape(q)}</div></div>
+  {('<div class="card">' + opts_html + '</div>') if opts_html else ''}
+  {saw_html}
+  <div class="card saw know"><div class="muted">{html.escape(know)}</div><div class="sawtext">{html.escape(knowText)}</div></div>
+  <div class="btn">{html.escape(confirm)}</div>
+  <div class="busy b2"><i></i>{html.escape(deciding)}</div>
+ </div>"""
+
+def _result(q, answer, conf, probs, why, low=None, low_cls="", reask=None, extra=None, cls="s3"):
+    banner = f'<div class="lowc">{html.escape(low)}</div>' if low else ''
+    re = f'<div class="reask"><div class="field"><span class="typed2" data-text="{html.escape(extra)}"></span><span class="mmic">{MIC_SVG}</span></div><div class="btn ghost">{html.escape(reask)}</div></div>' if reask else ''
+    return f"""<div class="scene {cls}{" low" if low else ""}">
+  {_bar("", back=True)}
+  <div class="muted" style="margin-top:.8em">{html.escape(q)}</div>
+  <div class="card"><div class="big">{html.escape(answer)}</div><div class="conf {low_cls}">{"?" if low else "✓"} {html.escape(conf)}</div></div>
+  {banner}
+  <div class="card">{_probs(probs)}</div>
+  <div class="why">{html.escape(why)}</div>
+  {re}
+ </div>"""
+
+def story_menu(d):
     menu_rows = "".join(f'<div class="mrow"><span>{html.escape(l)}</span><span class="dots"></span><span>{html.escape(sub.split(" · ")[0])}</span></div>' for l, sub in d["opts"] if sub)
-    opts = "".join(f'<div class="opt{" doomed" if i == d["doomed"] else ""}"><span>{html.escape(l)}<br><small>{html.escape(sub)}</small></span><span class="x">✕</span></div>' for i, (l, sub) in enumerate(d["opts"]))
-    probs = "".join(f'<div class="prob"><span>{html.escape(l)}</span><i style="--w:{p}%"></i><b>{p}%</b></div>' for l, p in d["probs"])
-    return f"""<div class="demo" id="demo" aria-label="WDYT demo">
-<div class="screen">
- <div class="scene s0 on vf">
-  <div class="vfbar"><span>✕</span><b>{html.escape(d['camTitle'])}</b><span></span></div>
-  <div class="board">
-   <div class="place">{html.escape(d['menuPlace'])}</div>
-   <div class="mtitle">{html.escape(d['menuTitle'])}</div>
-   {menu_rows}
-  </div>
+    mini = f'<span class="board mini"><div class="mtitle">{html.escape(d["menuTitle"])}</div>{menu_rows}</span>'
+    s0 = f"""<div class="scene s0 vf">
+  <div class="vfbar"><span>×</span><b>{html.escape(d['camTitle'])}</b><span></span></div>
+  <div class="board"><div class="place">{html.escape(d['menuPlace'])}</div><div class="mtitle">{html.escape(d['menuTitle'])}</div>{menu_rows}</div>
   <div class="corners"><i></i><i></i><i></i><i></i></div>
   <div class="vfhint">{html.escape(d['camHint'])}</div>
-  <div class="shutter"><i></i></div>
-  <div class="flash"></div>
+  <div class="shutter"><i></i></div><div class="flash"></div>
   <div class="captured"><div class="board mini"><div class="mtitle">{html.escape(d['menuTitle'])}</div>{menu_rows}</div></div>
- </div>
- <div class="scene s1">
-  <div class="bar">{html.escape(d['title'])}<small>⚙</small></div>
-  <div class="card"><span class="thumb"><span class="board mini"><div class="mtitle">{html.escape(d['menuTitle'])}</div>{menu_rows}</span></span><span class="muted">{html.escape(d['listening'])}</span><div class="typed" data-text="{html.escape(d['typed'])}"></div></div>
-  <div class="mic">{MIC_SVG}</div><div class="cap">{html.escape(d['cap'])}</div>
-  <div class="busy b1"><i></i>{html.escape(d['understanding'])}</div>
- </div>
- <div class="scene s2">
-  <div class="bar"><small>‹</small>{html.escape(d['understood'])}<small></small></div>
-  <div class="card"><div class="muted">Q</div><div style="font-weight:600">{html.escape(d['q'])}</div></div>
-  <div class="card">{opts}</div>
-  <div class="card saw"><div class="muted">{html.escape(d["saw"])}</div><div class="sawtext">{html.escape(d['sawText'])}</div></div>
-  <div class="card saw know"><div class="muted">{html.escape(d["know"])}</div><div class="sawtext">{html.escape(d['knowText'])}</div></div>
-  <div class="btn">{html.escape(d['confirm'])}</div>
-  <div class="busy b2"><i></i>{html.escape(d['deciding'])}</div>
- </div>
- <div class="scene s3">
-  <div class="bar"><small>‹</small><small></small></div>
-  <div class="muted" style="margin-top:.8em">{html.escape(d['q'])}</div>
-  <div class="card"><div class="big">{html.escape(d['answer'])}</div><div class="conf">✓ {html.escape(d['conf'])}</div></div>
-  <div class="card">{probs}</div>
-  <div class="why">{html.escape(d['why'])}</div>
- </div>
- <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
-</div></div>
-<script>(function(){{var r=document.getElementById("demo");if(!r)return;var S=r.querySelectorAll(".scene"),D=r.querySelectorAll(".dots i"),typed=r.querySelector(".typed"),doomed=r.querySelector(".opt.doomed"),btn=r.querySelector(".btn"),b1=r.querySelector(".b1"),b2=r.querySelector(".b2"),mic=r.querySelector(".mic"),txt=typed.getAttribute("data-text");var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;function go(k){{S.forEach(function(s,i){{s.classList.toggle("on",i===k)}});D.forEach(function(d,i){{d.classList.toggle("on",i===k)}})}}if(rm){{typed.textContent=txt;go(3);return}}var T=[];function at(ms,f){{T.push(setTimeout(f,ms))}}function reset(){{T.forEach(clearTimeout);T=[];typed.textContent="";doomed.classList.remove("gone");btn.classList.remove("press");b1.classList.remove("on");b2.classList.remove("on");mic.classList.remove("idle")}}var s0=r.querySelector(".s0");function run(){{reset();s0.classList.remove("shot");go(0);at(2000,function(){{s0.classList.add("shot")}});at(3300,function(){{go(1)}});var i=0;function type(){{if(i<txt.length){{typed.textContent+=txt[i++];at(85,type)}}}}at(4200,type);at(7000,function(){{mic.classList.add("idle");b1.classList.add("on")}});at(8200,function(){{go(2)}});at(10100,function(){{doomed.classList.add("gone")}});at(11300,function(){{btn.classList.add("press")}});at(11600,function(){{b2.classList.add("on")}});at(12400,function(){{go(3)}});at(17800,run)}}run();D.forEach(function(d,k){{d.style.cursor="pointer";d.addEventListener("click",function(){{reset();typed.textContent=k>=1?txt:"";doomed.classList.toggle("gone",k>=2);go(k);at(6000,run)}})}})}})();</script>"""
+ </div>"""
+    scenes = s0 + _talk(d, d['title'], d['typed'], f'<span class="thumb">{mini}</span>', d['listening'], d['cap'], d['understanding']) \
+        + _confirm(d['understood'], d['q'], _opts(d['opts'], d['doomed']), d['saw'], d['sawText'], d['know'], d['knowText'], d['confirm'], d['deciding']) \
+        + _result(d['q'], d['answer'], d['conf'], d['probs'], d['why'])
+    # timeline: [ms, op, selector, class]  op: go=k | add | rm | type
+    tl = [[0,"go",0],[2000,"add",".s0","shot"],[3300,"go",1],[4200,"type",".s1 .typed"],[7000,"add",".s1 .mic","idle"],[7000,"add",".b1","on"],
+          [8200,"go",2],[10100,"add",".s2 .doomed","gone"],[11300,"add",".s2 .btn","press"],[11600,"add",".b2","on"],[12400,"go",3],[17800,"end"]]
+    return scenes, tl, 4
+
+def story_outfit(d, o):
+    tiles = "".join(f'<div class="gtile {c}"><div class="garment {c}"></div><div class="gl">{html.escape(n)}</div><div class="chk">✓</div></div>' for n, c in o["garments"])
+    s0 = f"""<div class="scene s0">
+  {_bar(d['title'])}
+  <div class="sheet"><div class="hd">{html.escape(o['pick'])}<small>✓</small></div><div class="muted">{html.escape(o['pickHint'])}</div>
+   <div class="grid g3">{tiles}</div></div>
+ </div>"""
+    thumbs = '<span class="thumbs">' + "".join(f'<span class="thumb tiny"><span class="garment {c}"></span></span>' for _, c in o["garments"]) + '</span>'
+    scenes = s0 + _talk(d, d['title'], o['typed'], thumbs, d['listening'], d['cap'], d['understanding']) \
+        + _confirm(o['understood'], o['q'], _opts(o['opts'], o['doomed']), o['saw'], o['sawText'], o['know'], o['knowText'], o['confirm'], d['deciding']) \
+        + _result(o['q'], o['answer'], o['conf'], o['probs'], o['why'])
+    tl = [[0,"go",0],[700,"add",".s0 .gtile:nth-child(1)","sel"],[1300,"add",".s0 .gtile:nth-child(2)","sel"],[1900,"add",".s0 .gtile:nth-child(3)","sel"],
+          [2900,"go",1],[3700,"type",".s1 .typed"],[6800,"add",".s1 .mic","idle"],[6800,"add",".b1","on"],[8000,"go",2],
+          [10600,"add",".s2 .btn","press"],[10900,"add",".b2","on"],[11700,"go",3],[17000,"end"]]
+    return scenes, tl, 4
+
+def story_gym(d, g):
+    scenes = _talk(d, d['title'], g['typed'], '', d['listening'], d['cap'], d['understanding']) \
+        + _confirm(g['understood'], g['q'], '', None, None, g['know'], g['knowText'], g['confirm'], d['deciding']) \
+        + _result(g['q'], g['answer'], g['conf'], g['probs'], g['why'], low=g['low'], low_cls="lowconf", reask=g['reask'], extra=g['extra']) \
+        + _result(g['q'], g['answer2'], g['conf2'], g['probs2'], g['why2'], cls="s4")
+    tl = [[0,"go",0],[800,"type",".s1 .typed"],[4000,"add",".s1 .mic","idle"],[4000,"add",".b1","on"],[5200,"go",1],
+          [7400,"add",".s2 .btn","press"],[7700,"add",".b2","on"],[8500,"go",2],[11000,"type",".s3 .typed2"],[13600,"add",".s3 .ghost","press"],
+          [14200,"go",3],[19000,"end"]]
+    return scenes, tl, 4
+
+def demo(d):
+    """Hero animation: three stories (menu → outfit → gym), each a phone walking through
+    record → understand/edit → decide; story tabs above; auto-advances; reduced-motion shows results."""
+    import json as _json
+    built = [story_menu(d), story_outfit(d, d['outfit']), story_gym(d, d['gym'])]
+    phones = ""
+    tls = []
+    for i, (scenes, tl, n) in enumerate(built):
+        dots = "".join(f'<i class="{"on" if k == 0 else ""}"></i>' for k in range(n))
+        phones += f'<div class="story{" on" if i == 0 else ""}" data-story="{i}">{scenes}<div class="dots">{dots}</div></div>'
+        tls.append(tl)
+    tabs = "".join(f'<button class="{"on" if i == 0 else ""}" data-tab="{i}">{html.escape(t)}</button>' for i, t in enumerate(d['storyTabs']))
+    return f"""<div class="demo-wrap"><div class="tabs" id="demotabs">{tabs}</div>
+<div class="demo" id="demo" aria-label="WDYT demo"><div class="screen">{phones}</div></div></div>
+<script>(function(){{var TL={_json.dumps(tls)};var wrap=document.getElementById("demo");if(!wrap)return;var stories=wrap.querySelectorAll(".story"),tabs=document.querySelectorAll("#demotabs button");var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;var cur=0,T=[];
+function scenes(st){{return st.querySelectorAll(".scene")}}function go(st,k){{scenes(st).forEach(function(s,i){{s.classList.toggle("on",i===k)}});st.querySelectorAll(".dots i").forEach(function(d,i){{d.classList.toggle("on",i===k)}})}}
+function reset(st){{st.querySelectorAll(".typed,.typed2").forEach(function(e){{e.textContent=""}});st.querySelectorAll(".gone,.press,.shot,.idle,.sel").forEach(function(e){{e.classList.remove("gone","press","shot","idle","sel")}});st.querySelectorAll(".busy.on").forEach(function(e){{e.classList.remove("on")}})}}
+function typeInto(el){{var t=el.getAttribute("data-text"),i=0;el.textContent="";(function step(){{if(i<t.length){{el.textContent+=t[i++];T.push(setTimeout(step,85))}}}})()}}
+function show(idx){{T.forEach(clearTimeout);T=[];cur=idx;stories.forEach(function(s,i){{s.classList.toggle("on",i===idx)}});tabs.forEach(function(b,i){{b.classList.toggle("on",i===idx)}});var st=stories[idx];reset(st);if(rm){{st.querySelectorAll(".typed,.typed2").forEach(function(e){{e.textContent=e.getAttribute("data-text")}});go(st,scenes(st).length-1);return}}
+TL[idx].forEach(function(step){{T.push(setTimeout(function(){{var op=step[1];if(op==="go")go(st,step[2]);else if(op==="add"){{var e=st.querySelector(step[2]);if(e)e.classList.add(step[3])}}else if(op==="type"){{var e2=st.querySelector(step[2]);if(e2)typeInto(e2)}}else if(op==="end")show((idx+1)%stories.length)}},step[0]))}})}}
+tabs.forEach(function(b){{b.addEventListener("click",function(){{show(+b.getAttribute("data-tab"))}})}});var q=+(new URLSearchParams(location.search).get("story")||0);show(isNaN(q)?0:Math.max(0,Math.min(stories.length-1,q)))}})();</script>"""
 
 
 def cta_link(t):

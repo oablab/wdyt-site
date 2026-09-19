@@ -87,7 +87,9 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 .disclaim .card b{display:block;margin-bottom:.4rem}
 
 /* ---- animated hero demo (per-language) ---- */
-.demo{position:relative;width:min(340px,82vw);aspect-ratio:9/18.6;margin:3rem auto 0;border-radius:40px;background:#0b0f16;padding:10px;box-shadow:0 30px 70px rgba(29,39,51,.32)}
+.demo-wrap{margin:3rem auto 0;width:min(340px,82vw)}
+#demo{scroll-margin-top:170px}
+.demo{position:relative;width:100%;aspect-ratio:9/18.6;margin:0 auto;border-radius:40px;background:#0b0f16;padding:10px;box-shadow:0 30px 70px rgba(29,39,51,.32)}
 .demo .screen{text-align:left;position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:#F7FAFF;color:#1D2733;font-family:inherit;font-size:clamp(11px,3.4vw,14px);line-height:1.4}
 @media(prefers-color-scheme:dark){.demo .screen{background:#0F1620;color:#EEF3F9}}
 .demo .scene{position:absolute;inset:0;padding:1.6em 1.2em;opacity:0;transform:translateX(24px);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
@@ -101,14 +103,14 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 .demo .thumb::before{content:"";position:absolute;left:.6em;right:.6em;top:.7em;height:.25em;background:#7a6242;border-radius:2px;box-shadow:0 .7em 0 #7a6242,0 1.4em 0 #7a6242,0 2.1em 0 #7a6242}
 .demo .s1.on .thumb{opacity:1;transform:none;transition-delay:.4s}
 .demo .typed{min-height:2.6em;font-size:1.15em;margin-top:.5em}
-.demo .typed::after{content:"▍";color:#2F86F0;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.demo .mic{position:absolute;left:50%;bottom:2.4em;width:5.2em;height:5.2em;margin-left:-2.6em;border-radius:50%;background:#2F86F0;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(47,134,240,.35)}
+.demo .typed{border-right:2px solid #2F86F0;display:inline-block;padding-right:2px;animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{border-right-color:transparent}}
+.demo .mic{position:absolute;left:50%;bottom:3.4em;width:5.2em;height:5.2em;margin-left:-2.6em;border-radius:50%;background:#2F86F0;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(47,134,240,.35)}
 .demo .mic svg{width:2.2em;height:2.2em;fill:#fff}
 .demo .s1.on .mic{background:#E5484D;animation:micpulse 1.1s ease-out infinite}
 .demo .s1.on .mic.idle{background:#2F86F0;animation:none}
 @keyframes micpulse{0%{box-shadow:0 0 0 0 rgba(229,72,77,.55)}100%{box-shadow:0 0 0 1.4em rgba(229,72,77,0)}}
-.demo .cap{position:absolute;left:0;right:0;bottom:1em;text-align:center;color:#66717E;font-size:.82em}
+.demo .cap{position:absolute;left:0;right:0;bottom:1.9em;text-align:center;color:#66717E;font-size:.82em}
 .demo .opt{display:flex;justify-content:space-between;align-items:center;padding:.55em 0;border-bottom:1px solid rgba(47,134,240,.12);transition:all .45s ease}
 .demo .opt:last-child{border-bottom:0}
 .demo .opt small{color:#66717E;font-size:.8em}
@@ -123,7 +125,7 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 .demo .prob span:first-child{width:5.5em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .demo .prob i{flex:1;height:.55em;border-radius:.3em;background:rgba(47,134,240,.14);position:relative;overflow:hidden}
 .demo .prob i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:#2F86F0;border-radius:.3em;transition:width 1s ease}
-.demo .s3.on .prob i::after{width:var(--w)}
+.demo .s3.on .prob i::after,.demo .s4.on .prob i::after{width:var(--w)}
 .demo .prob b{width:2.6em;text-align:right;font-variant-numeric:tabular-nums}
 .demo .why{margin-top:.9em;font-size:.88em;color:#66717E}
 .demo .dots{position:absolute;left:0;right:0;bottom:.7em;display:flex;justify-content:center;gap:6px}
@@ -173,6 +175,48 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 .demo .thumb{width:4.2em;height:4.2em;background:none;overflow:hidden;border-radius:.6em;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 .demo .thumb::before{display:none}
 .demo .thumb .board.mini{font-size:.42em;padding:.5em}
+
+/* ---- multi-story ---- */
+.tabs{display:flex;justify-content:center;gap:.4rem;margin-bottom:.9rem}
+.tabs button{font-family:inherit;border:1px solid var(--border);background:var(--card);color:var(--muted);border-radius:999px;padding:.35rem .9rem;font-size:.85rem;font-weight:600;cursor:pointer}
+.tabs button.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+.demo .story{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .4s}
+.demo .story.on{opacity:1;pointer-events:auto}
+.demo .s4{}
+/* outfit picker */
+.demo .grid.g3{grid-template-columns:repeat(3,1fr)}
+.demo .gtile{position:relative;border-radius:.7em;background:#F2EDE6;padding:.5em .4em .35em;text-align:center;transition:outline-color .2s}
+.demo .gtile.sel{outline:3px solid #2F86F0;outline-offset:-3px}
+.demo .gtile .gl{font-size:.62em;color:#66717E;margin-top:.3em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demo .gtile .chk{position:absolute;right:.3em;top:.3em;width:1.3em;height:1.3em;border-radius:50%;background:#2F86F0;color:#fff;font-size:.8em;display:flex;align-items:center;justify-content:center;transform:scale(0);transition:transform .25s cubic-bezier(.2,1.4,.4,1)}
+.demo .gtile.sel .chk{transform:scale(1)}
+.demo .garment{width:2.6em;height:3.2em;margin:0 auto;border-radius:.4em .4em .6em .6em;position:relative}
+.demo .garment.navy{background:#22375f;clip-path:polygon(20% 0,40% 8%,50% 22%,60% 8%,80% 0,100% 12%,92% 100%,8% 100%,0 12%)}
+.demo .garment.navy::after{content:"";position:absolute;left:44%;top:8%;width:12%;height:60%;background:#fff;opacity:.9}
+.demo .garment.beige{background:#d8c3a5;clip-path:polygon(15% 0,85% 0,100% 18%,90% 26%,90% 100%,10% 100%,10% 26%,0 18%)}
+.demo .garment.black{background:#141416;clip-path:polygon(30% 0,70% 0,78% 14%,72% 40%,100% 100%,0 100%,28% 40%,22% 14%)}
+.demo .thumbs{display:inline-flex;gap:.35em;vertical-align:middle;margin-right:.6em}
+.demo .thumb.tiny{width:2.6em;height:2.6em;display:inline-flex;align-items:center;justify-content:center;background:#F2EDE6}
+.demo .thumb.tiny .garment{width:1.4em;height:1.8em;margin:0}
+/* result extras */
+.demo .conf.lowconf{color:#C77700}
+.demo .lowc{margin-top:.7em;background:rgba(199,119,0,.12);color:#8a5200;border-radius:.7em;padding:.55em .8em;font-size:.82em}
+.demo .reask{margin-top:1em}
+.demo .field{display:flex;align-items:center;gap:.5em;border:1px solid rgba(47,134,240,.3);border-radius:.7em;padding:.5em .7em;min-height:2.4em;font-size:.9em}
+.demo .field .typed2{flex:1;min-height:1.2em}.demo .field .typed2:empty::before{content:"…";color:#9aa3ad}
+.demo .field .mmic{width:1.9em;height:1.9em;border-radius:50%;background:#2F86F0;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.demo .field .mmic svg{width:1em;height:1em;fill:#fff}
+.demo .btn.ghost{background:transparent;color:#2F86F0;border:1.5px solid rgba(47,134,240,.5);margin-top:.6em}
+.demo .btn.ghost.press{background:rgba(47,134,240,.12);transform:scale(.97)}
+
+/* sheet + grid (restored) */
+.demo .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5em;margin-top:1em}
+.demo .sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:1.4em 1.4em 0 0;padding:1em 1.2em 1.6em;box-shadow:0 -10px 40px rgba(0,0,0,.12);transform:translateY(100%);transition:transform .45s cubic-bezier(.2,.9,.3,1)}
+@media(prefers-color-scheme:dark){.demo .sheet{background:#171F2B}}
+.demo .s0.on .sheet{transform:none;transition-delay:.35s}
+.demo .sheet .hd{display:flex;justify-content:space-between;font-weight:600}.demo .sheet .hd small{color:#2F86F0;font-weight:600}
+.demo .scene.low .prob i::after{background:#C77700}
+.demo .scene.low .prob i{background:rgba(199,119,0,.14)}
 </style>
 </head>
 <body>
@@ -182,46 +226,97 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
   <h1>You don't have to know what you're asking.<br>Just <em>say it</em>.</h1>
   <p class="sub">Hold the button, mumble what you&#x27;re weighing, snap the menu if there is one. WDYT works out the actual question and the options, shows them to you to fix, and only then gives you an answer — with a number for how sure it is.</p>
   <span class="badge">iPhone · coming to the App Store</span>
-  <div class="demo" id="demo" aria-label="WDYT demo">
-<div class="screen">
- <div class="scene s0 on vf">
-  <div class="vfbar"><span>✕</span><b>Take a photo</b><span></span></div>
-  <div class="board">
-   <div class="place">Corner Diner · Breakfast &amp; Lunch</div>
-   <div class="mtitle">TODAY&#x27;S MENU</div>
-   <div class="mrow"><span>Beef noodles</span><span class="dots"></span><span>$180</span></div><div class="mrow"><span>Chicken rice</span><span class="dots"></span><span>$120</span></div><div class="mrow"><span>Salad</span><span class="dots"></span><span>$150</span></div><div class="mrow"><span>Curry pork chop</span><span class="dots"></span><span>$200</span></div>
-  </div>
+  <div class="demo-wrap"><div class="tabs" id="demotabs"><button class="on" data-tab="0">Menu</button><button class="" data-tab="1">Outfit</button><button class="" data-tab="2">Gym</button></div>
+<div class="demo" id="demo" aria-label="WDYT demo"><div class="screen"><div class="story on" data-story="0"><div class="scene s0 vf">
+  <div class="vfbar"><span>×</span><b>Take a photo</b><span></span></div>
+  <div class="board"><div class="place">Corner Diner · Breakfast &amp; Lunch</div><div class="mtitle">TODAY&#x27;S MENU</div><div class="mrow"><span>Beef noodles</span><span class="dots"></span><span>$180</span></div><div class="mrow"><span>Chicken rice</span><span class="dots"></span><span>$120</span></div><div class="mrow"><span>Salad</span><span class="dots"></span><span>$150</span></div><div class="mrow"><span>Curry pork chop</span><span class="dots"></span><span>$200</span></div></div>
   <div class="corners"><i></i><i></i><i></i><i></i></div>
   <div class="vfhint">Frame the menu</div>
-  <div class="shutter"><i></i></div>
-  <div class="flash"></div>
+  <div class="shutter"><i></i></div><div class="flash"></div>
   <div class="captured"><div class="board mini"><div class="mtitle">TODAY&#x27;S MENU</div><div class="mrow"><span>Beef noodles</span><span class="dots"></span><span>$180</span></div><div class="mrow"><span>Chicken rice</span><span class="dots"></span><span>$120</span></div><div class="mrow"><span>Salad</span><span class="dots"></span><span>$150</span></div><div class="mrow"><span>Curry pork chop</span><span class="dots"></span><span>$200</span></div></div></div>
- </div>
- <div class="scene s1">
+ </div><div class="scene s1">
   <div class="bar">WDYT<small>⚙</small></div>
   <div class="card"><span class="thumb"><span class="board mini"><div class="mtitle">TODAY&#x27;S MENU</div><div class="mrow"><span>Beef noodles</span><span class="dots"></span><span>$180</span></div><div class="mrow"><span>Chicken rice</span><span class="dots"></span><span>$120</span></div><div class="mrow"><span>Salad</span><span class="dots"></span><span>$150</span></div><div class="mrow"><span>Curry pork chop</span><span class="dots"></span><span>$200</span></div></span></span><span class="muted">Listening…</span><div class="typed" data-text="what should I eat today…"></div></div>
   <div class="mic"><svg viewBox="0 0 24 24"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-5 5.92V20h3v2H8v-2h3v-3.08A6 6 0 0 1 6 11h2a4 4 0 0 0 8 0h2z"/></svg></div><div class="cap">Release to finish</div>
   <div class="busy b1"><i></i>Understanding…</div>
- </div>
- <div class="scene s2">
+ </div><div class="scene s2">
   <div class="bar"><small>‹</small>Here&#x27;s what I think you&#x27;re asking<small></small></div>
   <div class="card"><div class="muted">Q</div><div style="font-weight:600">Which dish on this menu should I have today?</div></div>
-  <div class="card"><div class="opt"><span>Beef noodles<br><small>$180 · rich broth</small></span><span class="x">✕</span></div><div class="opt"><span>Chicken rice<br><small>$120 · lean protein</small></span><span class="x">✕</span></div><div class="opt"><span>Salad<br><small>$150 · light, high fibre</small></span><span class="x">✕</span></div><div class="opt doomed"><span>Curry pork chop<br><small>$200 · fried</small></span><span class="x">✕</span></div><div class="opt"><span>None of these<br><small></small></span><span class="x">✕</span></div></div>
+  <div class="card"><div class="opt"><span>Beef noodles<br><small>$180 · rich broth</small></span><span class="x">×</span></div><div class="opt"><span>Chicken rice<br><small>$120 · lean protein</small></span><span class="x">×</span></div><div class="opt"><span>Salad<br><small>$150 · light, high fibre</small></span><span class="x">×</span></div><div class="opt doomed"><span>Curry pork chop<br><small>$200 · fried</small></span><span class="x">×</span></div><div class="opt"><span>None of these<br><small></small></span><span class="x">×</span></div></div>
   <div class="card saw"><div class="muted">What I picked up</div><div class="sawtext">Handwritten menu board, cream background, dark-brown lettering. Four mains: beef noodles $180 (braised broth, comes with a soy egg), chicken rice $120 (Chiayi style, chicken oil over rice), salad $150 (lettuce, cherry tomatoes, boiled egg, vinaigrette), curry pork chop $200 (deep-fried cutlet, Japanese curry). Note bottom-right: free extra rice. You said you&#x27;re cutting weight and want something light today.</div></div>
   <div class="card saw know"><div class="muted">What I know about you</div><div class="sawtext">identity.md: cutting weight, no beef, prefers light meals · soul.md: would rather eat less than eat fried food</div></div>
   <div class="btn">Confirm and get the answer</div>
   <div class="busy b2"><i></i>Deciding…</div>
- </div>
- <div class="scene s3">
+ </div><div class="scene s3">
   <div class="bar"><small>‹</small><small></small></div>
   <div class="muted" style="margin-top:.8em">Which dish on this menu should I have today?</div>
-  <div class="card"><div class="big">Salad</div><div class="conf">✓ confidence 92%</div></div>
+  <div class="card"><div class="big">Salad</div><div class="conf ">✓ confidence 92%</div></div>
+  
   <div class="card"><div class="prob"><span>Salad</span><i style="--w:92%"></i><b>92%</b></div><div class="prob"><span>Chicken rice</span><i style="--w:6%"></i><b>6%</b></div><div class="prob"><span>Beef noodles</span><i style="--w:2%"></i><b>2%</b></div><div class="prob"><span>None of these</span><i style="--w:0%"></i><b>0%</b></div></div>
   <div class="why">You&#x27;re cutting weight and prefer light food — the salad fits best.</div>
- </div>
- <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
-</div></div>
-<script>(function(){var r=document.getElementById("demo");if(!r)return;var S=r.querySelectorAll(".scene"),D=r.querySelectorAll(".dots i"),typed=r.querySelector(".typed"),doomed=r.querySelector(".opt.doomed"),btn=r.querySelector(".btn"),b1=r.querySelector(".b1"),b2=r.querySelector(".b2"),mic=r.querySelector(".mic"),txt=typed.getAttribute("data-text");var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;function go(k){S.forEach(function(s,i){s.classList.toggle("on",i===k)});D.forEach(function(d,i){d.classList.toggle("on",i===k)})}if(rm){typed.textContent=txt;go(3);return}var T=[];function at(ms,f){T.push(setTimeout(f,ms))}function reset(){T.forEach(clearTimeout);T=[];typed.textContent="";doomed.classList.remove("gone");btn.classList.remove("press");b1.classList.remove("on");b2.classList.remove("on");mic.classList.remove("idle")}var s0=r.querySelector(".s0");function run(){reset();s0.classList.remove("shot");go(0);at(2000,function(){s0.classList.add("shot")});at(3300,function(){go(1)});var i=0;function type(){if(i<txt.length){typed.textContent+=txt[i++];at(85,type)}}at(4200,type);at(7000,function(){mic.classList.add("idle");b1.classList.add("on")});at(8200,function(){go(2)});at(10100,function(){doomed.classList.add("gone")});at(11300,function(){btn.classList.add("press")});at(11600,function(){b2.classList.add("on")});at(12400,function(){go(3)});at(17800,run)}run();D.forEach(function(d,k){d.style.cursor="pointer";d.addEventListener("click",function(){reset();typed.textContent=k>=1?txt:"";doomed.classList.toggle("gone",k>=2);go(k);at(6000,run)})})})();</script>
+  
+ </div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></div><div class="story" data-story="1"><div class="scene s0">
+  <div class="bar">WDYT<small>⚙</small></div>
+  <div class="sheet"><div class="hd">Add photos<small>✓</small></div><div class="muted">Up to three</div>
+   <div class="grid g3"><div class="gtile navy"><div class="garment navy"></div><div class="gl">Navy blazer</div><div class="chk">✓</div></div><div class="gtile beige"><div class="garment beige"></div><div class="gl">Beige knit</div><div class="chk">✓</div></div><div class="gtile black"><div class="garment black"></div><div class="gl">Black dress</div><div class="chk">✓</div></div></div></div>
+ </div><div class="scene s1">
+  <div class="bar">WDYT<small>⚙</small></div>
+  <div class="card"><span class="thumbs"><span class="thumb tiny"><span class="garment navy"></span></span><span class="thumb tiny"><span class="garment beige"></span></span><span class="thumb tiny"><span class="garment black"></span></span></span><span class="muted">Listening…</span><div class="typed" data-text="which one for tomorrow&#x27;s interview…"></div></div>
+  <div class="mic"><svg viewBox="0 0 24 24"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-5 5.92V20h3v2H8v-2h3v-3.08A6 6 0 0 1 6 11h2a4 4 0 0 0 8 0h2z"/></svg></div><div class="cap">Release to finish</div>
+  <div class="busy b1"><i></i>Understanding…</div>
+ </div><div class="scene s2">
+  <div class="bar"><small>‹</small>Here&#x27;s what I think you&#x27;re asking<small></small></div>
+  <div class="card"><div class="muted">Q</div><div style="font-weight:600">Which outfit should I wear to tomorrow&#x27;s interview?</div></div>
+  <div class="card"><div class="opt"><span>Navy blazer<br><small>$— · formal, sharp</small></span><span class="x">×</span></div><div class="opt"><span>Beige knit<br><small>$— · soft, approachable</small></span><span class="x">×</span></div><div class="opt"><span>Black dress<br><small>$— · elegant, simple</small></span><span class="x">×</span></div><div class="opt"><span>None of these<br><small></small></span><span class="x">×</span></div></div>
+  <div class="card saw"><div class="muted">What I picked up</div><div class="sawtext">Three photos on a bed: a navy single-breasted blazer with a white shirt, slim fit; an oversized beige ribbed knit; a black knee-length sheath dress. You said the interview is at a design studio.</div></div>
+  <div class="card saw know"><div class="muted">What I know about you</div><div class="sawtext">identity.md: product designer · soul.md: would rather look understated than overdressed</div></div>
+  <div class="btn">Confirm and get the answer</div>
+  <div class="busy b2"><i></i>Deciding…</div>
+ </div><div class="scene s3">
+  <div class="bar"><small>‹</small><small></small></div>
+  <div class="muted" style="margin-top:.8em">Which outfit should I wear to tomorrow&#x27;s interview?</div>
+  <div class="card"><div class="big">Navy blazer</div><div class="conf ">✓ confidence 78%</div></div>
+  
+  <div class="card"><div class="prob"><span>Navy blazer</span><i style="--w:78%"></i><b>78%</b></div><div class="prob"><span>Black dress</span><i style="--w:15%"></i><b>15%</b></div><div class="prob"><span>Beige knit</span><i style="--w:7%"></i><b>7%</b></div><div class="prob"><span>None of these</span><i style="--w:0%"></i><b>0%</b></div></div>
+  <div class="why">Formal enough for a first meeting, but the shirt-and-blazer keeps it understated — closest to how you like to look.</div>
+  
+ </div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></div><div class="story" data-story="2"><div class="scene s1">
+  <div class="bar">WDYT<small>⚙</small></div>
+  <div class="card"><span class="muted">Listening…</span><div class="typed" data-text="should I go to the gym today or not…"></div></div>
+  <div class="mic"><svg viewBox="0 0 24 24"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-5 5.92V20h3v2H8v-2h3v-3.08A6 6 0 0 1 6 11h2a4 4 0 0 0 8 0h2z"/></svg></div><div class="cap">Release to finish</div>
+  <div class="busy b1"><i></i>Understanding…</div>
+ </div><div class="scene s2">
+  <div class="bar"><small>‹</small>Here&#x27;s what I think you&#x27;re asking<small></small></div>
+  <div class="card"><div class="muted">Q</div><div style="font-weight:600">Should I go to the gym today?</div></div>
+  
+  
+  <div class="card saw know"><div class="muted">What I know about you</div><div class="sawtext">identity.md: aiming for three workouts a week, two done so far · soul.md: values consistency over intensity</div></div>
+  <div class="btn">Confirm and get the answer</div>
+  <div class="busy b2"><i></i>Deciding…</div>
+ </div><div class="scene s3 low">
+  <div class="bar"><small>‹</small><small></small></div>
+  <div class="muted" style="margin-top:.8em">Should I go to the gym today?</div>
+  <div class="card"><div class="big">Leaning yes</div><div class="conf lowconf">? confidence 10%</div></div>
+  <div class="lowc">Not sure — this one is close to a coin flip.</div>
+  <div class="card"><div class="prob"><span>Yes</span><i style="--w:55%"></i><b>55%</b></div><div class="prob"><span>No</span><i style="--w:45%"></i><b>45%</b></div></div>
+  <div class="why">Probability of yes: 55%. Two of three sessions done; nothing in what you said tips it.</div>
+  <div class="reask"><div class="field"><span class="typed2" data-text="I&#x27;m travelling the next three days"></span><span class="mmic"><svg viewBox="0 0 24 24"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-5 5.92V20h3v2H8v-2h3v-3.08A6 6 0 0 1 6 11h2a4 4 0 0 0 8 0h2z"/></svg></span></div><div class="btn ghost">Ask again with this</div></div>
+ </div><div class="scene s4">
+  <div class="bar"><small>‹</small><small></small></div>
+  <div class="muted" style="margin-top:.8em">Should I go to the gym today?</div>
+  <div class="card"><div class="big">Yes — go today</div><div class="conf ">✓ confidence 76%</div></div>
+  
+  <div class="card"><div class="prob"><span>Yes</span><i style="--w:88%"></i><b>88%</b></div><div class="prob"><span>No</span><i style="--w:12%"></i><b>12%</b></div></div>
+  <div class="why">Probability of yes: 88%. Today is the last chance for the third session this week.</div>
+  
+ </div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></div></div></div></div>
+<script>(function(){var TL=[[[0, "go", 0], [2000, "add", ".s0", "shot"], [3300, "go", 1], [4200, "type", ".s1 .typed"], [7000, "add", ".s1 .mic", "idle"], [7000, "add", ".b1", "on"], [8200, "go", 2], [10100, "add", ".s2 .doomed", "gone"], [11300, "add", ".s2 .btn", "press"], [11600, "add", ".b2", "on"], [12400, "go", 3], [17800, "end"]], [[0, "go", 0], [700, "add", ".s0 .gtile:nth-child(1)", "sel"], [1300, "add", ".s0 .gtile:nth-child(2)", "sel"], [1900, "add", ".s0 .gtile:nth-child(3)", "sel"], [2900, "go", 1], [3700, "type", ".s1 .typed"], [6800, "add", ".s1 .mic", "idle"], [6800, "add", ".b1", "on"], [8000, "go", 2], [10600, "add", ".s2 .btn", "press"], [10900, "add", ".b2", "on"], [11700, "go", 3], [17000, "end"]], [[0, "go", 0], [800, "type", ".s1 .typed"], [4000, "add", ".s1 .mic", "idle"], [4000, "add", ".b1", "on"], [5200, "go", 1], [7400, "add", ".s2 .btn", "press"], [7700, "add", ".b2", "on"], [8500, "go", 2], [11000, "type", ".s3 .typed2"], [13600, "add", ".s3 .ghost", "press"], [14200, "go", 3], [19000, "end"]]];var wrap=document.getElementById("demo");if(!wrap)return;var stories=wrap.querySelectorAll(".story"),tabs=document.querySelectorAll("#demotabs button");var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;var cur=0,T=[];
+function scenes(st){return st.querySelectorAll(".scene")}function go(st,k){scenes(st).forEach(function(s,i){s.classList.toggle("on",i===k)});st.querySelectorAll(".dots i").forEach(function(d,i){d.classList.toggle("on",i===k)})}
+function reset(st){st.querySelectorAll(".typed,.typed2").forEach(function(e){e.textContent=""});st.querySelectorAll(".gone,.press,.shot,.idle,.sel").forEach(function(e){e.classList.remove("gone","press","shot","idle","sel")});st.querySelectorAll(".busy.on").forEach(function(e){e.classList.remove("on")})}
+function typeInto(el){var t=el.getAttribute("data-text"),i=0;el.textContent="";(function step(){if(i<t.length){el.textContent+=t[i++];T.push(setTimeout(step,85))}})()}
+function show(idx){T.forEach(clearTimeout);T=[];cur=idx;stories.forEach(function(s,i){s.classList.toggle("on",i===idx)});tabs.forEach(function(b,i){b.classList.toggle("on",i===idx)});var st=stories[idx];reset(st);if(rm){st.querySelectorAll(".typed,.typed2").forEach(function(e){e.textContent=e.getAttribute("data-text")});go(st,scenes(st).length-1);return}
+TL[idx].forEach(function(step){T.push(setTimeout(function(){var op=step[1];if(op==="go")go(st,step[2]);else if(op==="add"){var e=st.querySelector(step[2]);if(e)e.classList.add(step[3])}else if(op==="type"){var e2=st.querySelector(step[2]);if(e2)typeInto(e2)}else if(op==="end")show((idx+1)%stories.length)},step[0]))})}
+tabs.forEach(function(b){b.addEventListener("click",function(){show(+b.getAttribute("data-tab"))})});var q=+(new URLSearchParams(location.search).get("story")||0);show(isNaN(q)?0:Math.max(0,Math.min(stories.length-1,q)))})();</script>
 </header>
 <section class="features" id="features">
   <h2 class="section-title">Why it feels different</h2>
