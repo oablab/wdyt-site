@@ -225,7 +225,7 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 <header class="hero">
   <h1>你不必先想清楚要问什么。<br><em>说出来</em>就好。</h1>
   <p class="sub">按住按钮，含糊地说你在犹豫什么，有菜单就拍一张。WDYT 帮你整理出真正的问题和选项，先给你看、让你改，确认之后才给答案——而且附上它有多确定的数字。</p>
-  <span class="badge">iPhone · 即将上架 App Store</span>
+  <a class="badge" href="https://apps.apple.com/app/id6813659109">iPhone · 已在 App Store 上架</a>
   <div class="demo-wrap"><div class="tabs" id="demotabs"><button class="on" data-tab="0">菜单</button><button class="" data-tab="1">穿搭</button><button class="" data-tab="2">健身房</button></div>
 <div class="demo" id="demo" aria-label="WDYT demo"><div class="screen"><div class="story on" data-story="0"><div class="scene s0 vf">
   <div class="vfbar"><span>×</span><b>拍照</b><span></span></div>
@@ -331,6 +331,6 @@ tabs.forEach(function(b){b.addEventListener("click",function(){show(+b.getAttrib
 <section class="privacy"><div class="privacy-card"><h2>你的密钥、你的手机。没有 WDYT 服务器。</h2><p>WDYT 没有后端。语音在设备上识别。理解问题是你的手机用你自己的 API 密钥直连 Google Gemini；做决定是直连 OpenRouter（TypeSafe Jev），也是你自己的密钥。密钥存在 iOS Keychain。<a href="/privacy/">隐私政策</a> · <a href="/terms/">使用条款</a></p></div></section>
 <section class="disclaim"><div class="card"><b>拿来玩的，不是拿来决定人生的。</b>本 App 仅供娱乐用途。所有回答由 AI 模型生成，可能出错。重要的决定——健康、金钱、法律、安全、感情、工作——请务必咨询专业人士评估，并用自己的判断。使用风险自负；本 App 及其开发者不对你据此做出的任何决定负责，亦不对任何决定所造成的任何损失或损害负责。</div></section>
 <section class="faq" id="faq"><h2 class="section-title">常见问题</h2><div class="faq"><details><summary>为什么要两把 API 密钥？</summary><p>因为是两件事。Gemini（Google）负责读你的话和照片、写出问题——要一把 Google AI Studio 的 Gemini 密钥。Jev（TypeSafe）负责做决定——通过 OpenRouter 调用，所以要一把 OpenRouter 密钥。两边都是你自己账户按量计费，一题通常远低于一美分。WDYT 看不到任何一把密钥。</p></details><details><summary>Jev 是什么？为什么不直接让 Gemini 决定？</summary><p>Jev 是 TypeSafe 的「System One」模型：它不生成文字，只返回有类型的答案——从你的清单选一个、一个是／否的概率、或量表上的一个位置——并附校准过的概率，大约 100–500 毫秒。信心数字之所以有意义、答案之所以瞬间出来，就是因为它。Gemini 负责 Jev 做不到的那半：听懂模糊的话、看照片。</p></details><details><summary>决策模型看得到我的照片吗？</summary><p>看不到——Jev 只收文字。Gemini 会把它看到的全部写下来（菜单每一项和价格、衣服长什么样），Jev 判断的就是这段文字。这段文字在确认页面就叫「我看到的」，你可以改。</p></details><details><summary>支持哪些语言？</summary><p>界面可选 English、繁體中文、简体中文，跟手机语言无关。语音：英文用 Apple；中文用 SenseVoice，第一次要下载约 230 MB。这个模型和你手机上其他 tautiu.dev 的 App 共用，下载一次就好。</p></details><details><summary>identity.md 和 soul.md 是什么？</summary><p>identity.md 是你是谁——饮食、预算、习惯。soul.md 是你怎么做决定——在意什么、避免什么。每次提问都会一起发送，让答案贴近你。可以自己写，也可以开启「允许自动更新关于我的信息」让 Gemini 每次回答完帮你修订。默认关闭。</p></details><details><summary>有东西被存储或分享吗？</summary><p>全部留在你手机上：密钥在 Keychain、两个文件、历史记录。仅有的网络连接是你自己发起的那两次，从你的手机直接到 Google 和 OpenRouter，受它们各自的隐私政策约束。</p></details></div></section>
-<div class="bottom-cta"><h2>午餐别再想三十分钟了。</h2><span class="cta pending">即将上架 App Store</span></div>
+<div class="bottom-cta"><h2>午餐别再想三十分钟了。</h2><a class="cta" href="https://apps.apple.com/app/id6813659109">在 App Store 下载</a></div>
 <footer>© 2026 WDYT · tautiu.dev · <a href="/privacy/">隐私政策</a> · <a href="/terms/">使用条款</a> · <a href="/support/">支持</a> · <a href="mailto:tautiu.dev+wdyt@gmail.com">tautiu.dev+wdyt@gmail.com</a></footer>
 </body></html>
