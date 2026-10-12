@@ -11,9 +11,9 @@ import html, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://wdytai.app"
 MAIL = "tautiu.dev+wdyt@gmail.com"
-LAST_UPDATED = "September 18, 2026"
+LAST_UPDATED = "October 13, 2026"
 CSS = (ROOT / "scripts/_css.txt").read_text()
-STORE_URL = None   # not on the App Store yet → dashed "coming soon" badge
+STORE_URL = "https://apps.apple.com/app/id6813659109"   # live since 0.1.0 (2026-10-05)
 
 T = {
  "en": dict(
@@ -22,7 +22,7 @@ T = {
   nav=["Features", "How it works", "FAQ"], nav_ids=["features", "how", "faq"],
   h1='You don\'t have to know what you\'re asking.<br>Just <em>say it</em>.',
   sub="Hold the button, mumble what you're weighing, snap the menu if there is one. WDYT works out the actual question and the options, shows them to you to fix, and only then gives you an answer — with a number for how sure it is.",
-  badge="iPhone · coming to the App Store", shots=("shot-en.jpg", "shot-zh.jpg", "shot-cn.jpg"),
+  badge="iPhone · on the App Store", shots=("shot-en.jpg", "shot-zh.jpg", "shot-cn.jpg"),
   features_title="Why it feels different",
   features=[("Speak, don't type", "Hold or tap the mic and talk. English through Apple's recogniser; Chinese through SenseVoice running on your phone. No audio ever leaves the device."),
             ("It phrases the question for you", "A generator model reads your words and photos and writes the question, the options, and what it saw — you never fill in a form."),
@@ -36,17 +36,17 @@ T = {
          ("Confirm and get the answer", "One pick, the probability of every option, a confidence figure, and one line on why. Add a sentence and ask again if it missed something.")],
   verdicts=[("ok", "92% — clear", "Preferences and options line up; take it."), ("close", "55% — coin flip", "Told as a coin flip, not dressed up as certainty."), ("no", "Not enough to go on", "It says so and asks for one more sentence.")],
   privacy_h="Your keys. Your phone. No WDYT servers.",
-  privacy_p=f'WDYT has no backend. Speech is recognised on the device. Understanding goes straight from your phone to Google Gemini with your own API key; the decision goes straight to OpenRouter (TypeSafe Jev) with your own key. Keys live in the iOS Keychain. <a href="/privacy/">Privacy policy</a> · <a href="/terms/">Terms</a>',
+  privacy_p=f'WDYT has no backend. Speech is recognised on the device. Understanding goes straight from your phone to Google Gemini or OpenAI with your own API key; the decision goes straight to TypeSafe Jev — via OpenRouter or TypeSafe directly — with your own key. Keys live in the iOS Keychain. <a href="/privacy/">Privacy policy</a> · <a href="/terms/">Terms</a>',
   disclaim_b="For fun, not for life decisions.",
   disclaim_p="WDYT is entertainment. Its answers come from AI models and can be wrong. For anything that matters — health, money, legal matters, safety, relationships, work — consult a qualified professional and use your own judgment. You use it at your own risk; the app and its developer are not responsible for any decision made with it or any loss arising from one.",
   faq_title="Questions",
-  faq=[("Why two API keys?", "Two different jobs. Gemini (Google) reads your words and photos and writes the question — you need a Gemini key from Google AI Studio. Jev (TypeSafe) makes the decision — it's reached through OpenRouter, so you need an OpenRouter key. Both are pay-as-you-go on your own account; a typical question costs well under a cent. WDYT never sees either key."),
+  faq=[("Why two API keys?", "Two different jobs. The generator reads your words and photos and writes the question — Google Gemini (key from Google AI Studio) or OpenAI (key from platform.openai.com), your pick in Settings. Jev (TypeSafe) makes the decision — reached through OpenRouter or TypeSafe's own API, so you need a key for whichever you choose. Both are pay-as-you-go on your own account; a typical question costs well under a cent. WDYT never sees either key."),
        ("What is Jev, and why not just ask Gemini to decide?", "Jev is a “System One” model from TypeSafe: it doesn't generate text, it returns a typed answer — one option from your list, a yes/no probability, or a position on a scale — with calibrated probabilities, in about 100–500 ms. That's what makes the confidence figure meaningful and the answer instant. Gemini is used for the part Jev can't do: understanding fuzzy speech and reading photos."),
        ("Does the decision model see my photo?", "No — Jev is text-only. Gemini writes down everything it saw (every menu item with its price, what the outfit looks like) and that text is what Jev judges. You see that text on the confirm screen and can correct it."),
        ("Which languages?", "The interface is English, 繁體中文 or 简体中文 — your choice, independent of the phone's language. Speech: English via Apple; Mandarin via SenseVoice after a one-time ~230 MB download. The model is shared with other tautiu.dev apps on your phone, so you only download it once."),
        ("What are identity.md and soul.md?", "identity.md is who you are — diet, budget, habits. soul.md is how you decide — what you optimise for, what you avoid. Both are sent with every question so answers fit you. You can write them yourself, or turn on “update these from my questions” and let Gemini revise them after each answer. Off by default."),
-       ("Is anything stored or shared?", "Everything stays on your phone: keys in the Keychain, the two profile files, your history. The only network calls are the two you initiate, from your phone directly to Google and OpenRouter under their privacy policies.")],
-  cta_h="Stop overthinking lunch.", cta="Coming to the App Store",
+       ("Is anything stored or shared?", "Everything stays on your phone: keys in the Keychain, the two profile files, your history. The only network calls are the two you initiate, from your phone directly to the providers you picked in Settings (Google or OpenAI; OpenRouter or TypeSafe) under their privacy policies.")],
+  cta_h="Stop overthinking lunch.", cta="Download on the App Store",
   footer_privacy="Privacy", footer_terms="Terms", footer_support="Support",
   demo=dict(title="WDYT", storyTabs=["Menu","Outfit","Gym"],
   outfit=dict(pick="Add photos", pickHint="Up to three", garments=[("Navy blazer","navy"),("Beige knit","beige"),("Black dress","black")],
@@ -74,7 +74,7 @@ T = {
   nav=["特色", "怎麼用", "常見問題"], nav_ids=["features", "how", "faq"],
   h1='你不必先想清楚要問什麼。<br><em>說出來</em>就好。',
   sub="按住按鈕，含糊地講你在猶豫什麼，有菜單就拍一張。WDYT 幫你整理出真正的問題和選項，先給你看、讓你改，確認之後才給答案——而且附上它有多確定的數字。",
-  badge="iPhone · 即將上架 App Store", shots=("shot-zh.jpg", "shot-en.jpg", "shot-cn.jpg"),
+  badge="iPhone · 已在 App Store 上架", shots=("shot-zh.jpg", "shot-en.jpg", "shot-cn.jpg"),
   features_title="哪裡不一樣",
   features=[("開口說，不用打字", "按住或點一下麥克風說話。英文走 Apple 辨識，中文用手機上跑的 SenseVoice。語音永遠不會離開裝置。"),
             ("問題它幫你寫", "生成模型讀你的話和照片，寫出問題、選項、還有「它看到了什麼」——你從頭到尾不用填表。"),
@@ -88,17 +88,17 @@ T = {
          ("確認、拿答案", "一個選擇、每個選項的機率、一個信心數字、一句為什麼。漏了什麼就補一句再問。")],
   verdicts=[("ok", "92%——很清楚", "偏好和選項對得上，就它了。"), ("close", "55%——五五波", "老實告訴你是五五波，不裝篤定。"), ("no", "資訊不足", "它會說，並請你多給一句。")],
   privacy_h="你的金鑰、你的手機。沒有 WDYT 伺服器。",
-  privacy_p=f'WDYT 沒有後端。語音在裝置上辨識。理解問題是你的手機用你自己的 API 金鑰直連 Google Gemini；做決定是直連 OpenRouter（TypeSafe Jev），也是你自己的金鑰。金鑰存在 iOS Keychain。<a href="/privacy/">隱私政策</a> · <a href="/terms/">使用條款</a>',
+  privacy_p=f'WDYT 沒有後端。語音在裝置上辨識。理解問題是你的手機用你自己的 API 金鑰直連 Google Gemini 或 OpenAI；做決定是直連 TypeSafe Jev（經 OpenRouter 或 TypeSafe 官方），也是你自己的金鑰。金鑰存在 iOS Keychain。<a href="/privacy/">隱私政策</a> · <a href="/terms/">使用條款</a>',
   disclaim_b="拿來玩的，不是拿來決定人生的。",
   disclaim_p="本 App 僅供娛樂用途。所有回答由 AI 模型產生，可能出錯。重要的決定——健康、金錢、法律、安全、感情、工作——請務必諮詢專業人士評估，並用自己的判斷。使用風險自負；本 App 及其開發者不對你據此做出的任何決定負責，亦不對任何決定所造成的任何損失或損害負責。",
   faq_title="常見問題",
-  faq=[("為什麼要兩把 API 金鑰？", "因為是兩件事。Gemini（Google）負責讀你的話和照片、寫出問題——要一把 Google AI Studio 的 Gemini 金鑰。Jev（TypeSafe）負責做決定——透過 OpenRouter 呼叫，所以要一把 OpenRouter 金鑰。兩邊都是你自己帳戶按量計費，一題通常遠低於一美分。WDYT 看不到任何一把金鑰。"),
+  faq=[("為什麼要兩把 API 金鑰？", "因為是兩件事。生成模型負責讀你的話和照片、寫出問題——在設定裡選 Google Gemini（Google AI Studio 的金鑰）或 OpenAI（platform.openai.com 的金鑰）。Jev（TypeSafe）負責做決定——經 OpenRouter 或 TypeSafe 官方 API 呼叫，填你選的那一家的金鑰。兩邊都是你自己帳戶按量計費，一題通常遠低於一美分。WDYT 看不到任何一把金鑰。"),
        ("Jev 是什麼？為什麼不直接讓 Gemini 決定？", "Jev 是 TypeSafe 的「System One」模型：它不產生文字，只回傳有型別的答案——從你的清單選一個、一個是／否的機率、或量表上的一個位置——並附校準過的機率，大約 100–500 毫秒。信心數字之所以有意義、答案之所以瞬間出來，就是因為它。Gemini 負責 Jev 做不到的那半：聽懂模糊的話、看照片。"),
        ("決策模型看得到我的照片嗎？", "看不到——Jev 只收文字。Gemini 會把它看到的全部寫下來（菜單每一項和價格、衣服長什麼樣），Jev 判斷的就是這段文字。這段文字在確認畫面就叫「我看到的」，你可以改。"),
        ("支援哪些語言？", "介面可選 English、繁體中文、简体中文，跟手機語言無關。語音：英文用 Apple；中文用 SenseVoice，第一次要下載約 230 MB。這個模型和你手機上其他 tautiu.dev 的 App 共用，下載一次就好。"),
        ("identity.md 和 soul.md 是什麼？", "identity.md 是你是誰——飲食、預算、習慣。soul.md 是你怎麼做決定——在意什麼、避免什麼。每次提問都會一起送出，讓答案貼近你。可以自己寫，也可以開啟「允許自動更新關於我的資訊」讓 Gemini 每次回答完幫你修訂。預設關閉。"),
        ("有東西被儲存或分享嗎？", "全部留在你手機上：金鑰在 Keychain、兩個檔案、歷史紀錄。唯二的網路連線是你自己發起的那兩次，從你的手機直接到 Google 和 OpenRouter，受它們各自的隱私政策規範。")],
-  cta_h="午餐別再想三十分鐘了。", cta="即將上架 App Store",
+  cta_h="午餐別再想三十分鐘了。", cta="在 App Store 下載",
   footer_privacy="隱私政策", footer_terms="使用條款", footer_support="支援",
   demo=dict(title="幫我做決定", storyTabs=["菜單","穿搭","健身房"],
   outfit=dict(pick="加照片", pickHint="最多三張", garments=[("深藍西裝外套","navy"),("米色針織","beige"),("黑色洋裝","black")],
@@ -126,7 +126,7 @@ T = {
   nav=["特色", "怎么用", "常见问题"], nav_ids=["features", "how", "faq"],
   h1='你不必先想清楚要问什么。<br><em>说出来</em>就好。',
   sub="按住按钮，含糊地说你在犹豫什么，有菜单就拍一张。WDYT 帮你整理出真正的问题和选项，先给你看、让你改，确认之后才给答案——而且附上它有多确定的数字。",
-  badge="iPhone · 即将上架 App Store", shots=("shot-cn.jpg", "shot-zh.jpg", "shot-en.jpg"),
+  badge="iPhone · 已在 App Store 上架", shots=("shot-cn.jpg", "shot-zh.jpg", "shot-en.jpg"),
   features_title="哪里不一样",
   features=[("开口说，不用打字", "按住或点一下麦克风说话。英文走 Apple 识别，中文用手机上跑的 SenseVoice。语音永远不会离开设备。"),
             ("问题它帮你写", "生成模型读你的话和照片，写出问题、选项、还有「它看到了什么」——你从头到尾不用填表。"),
@@ -140,17 +140,17 @@ T = {
          ("确认、拿答案", "一个选择、每个选项的概率、一个信心数字、一句为什么。漏了什么就补一句再问。")],
   verdicts=[("ok", "92%——很清楚", "偏好和选项对得上，就它了。"), ("close", "55%——五五开", "老实告诉你是五五开，不装笃定。"), ("no", "信息不足", "它会说，并请你多给一句。")],
   privacy_h="你的密钥、你的手机。没有 WDYT 服务器。",
-  privacy_p=f'WDYT 没有后端。语音在设备上识别。理解问题是你的手机用你自己的 API 密钥直连 Google Gemini；做决定是直连 OpenRouter（TypeSafe Jev），也是你自己的密钥。密钥存在 iOS Keychain。<a href="/privacy/">隐私政策</a> · <a href="/terms/">使用条款</a>',
+  privacy_p=f'WDYT 没有后端。语音在设备上识别。理解问题是你的手机用你自己的 API 密钥直连 Google Gemini 或 OpenAI；做决定是直连 TypeSafe Jev（经 OpenRouter 或 TypeSafe 官方），也是你自己的密钥。密钥存在 iOS Keychain。<a href="/privacy/">隐私政策</a> · <a href="/terms/">使用条款</a>',
   disclaim_b="拿来玩的，不是拿来决定人生的。",
   disclaim_p="本 App 仅供娱乐用途。所有回答由 AI 模型生成，可能出错。重要的决定——健康、金钱、法律、安全、感情、工作——请务必咨询专业人士评估，并用自己的判断。使用风险自负；本 App 及其开发者不对你据此做出的任何决定负责，亦不对任何决定所造成的任何损失或损害负责。",
   faq_title="常见问题",
-  faq=[("为什么要两把 API 密钥？", "因为是两件事。Gemini（Google）负责读你的话和照片、写出问题——要一把 Google AI Studio 的 Gemini 密钥。Jev（TypeSafe）负责做决定——通过 OpenRouter 调用，所以要一把 OpenRouter 密钥。两边都是你自己账户按量计费，一题通常远低于一美分。WDYT 看不到任何一把密钥。"),
+  faq=[("为什么要两把 API 密钥？", "因为是两件事。生成模型负责读你的话和照片、写出问题——在设置里选 Google Gemini（Google AI Studio 的密钥）或 OpenAI（platform.openai.com 的密钥）。Jev（TypeSafe）负责做决定——经 OpenRouter 或 TypeSafe 官方 API 调用，填你选的那一家的密钥。两边都是你自己账户按量计费，一题通常远低于一美分。WDYT 看不到任何一把密钥。"),
        ("Jev 是什么？为什么不直接让 Gemini 决定？", "Jev 是 TypeSafe 的「System One」模型：它不生成文字，只返回有类型的答案——从你的清单选一个、一个是／否的概率、或量表上的一个位置——并附校准过的概率，大约 100–500 毫秒。信心数字之所以有意义、答案之所以瞬间出来，就是因为它。Gemini 负责 Jev 做不到的那半：听懂模糊的话、看照片。"),
        ("决策模型看得到我的照片吗？", "看不到——Jev 只收文字。Gemini 会把它看到的全部写下来（菜单每一项和价格、衣服长什么样），Jev 判断的就是这段文字。这段文字在确认页面就叫「我看到的」，你可以改。"),
        ("支持哪些语言？", "界面可选 English、繁體中文、简体中文，跟手机语言无关。语音：英文用 Apple；中文用 SenseVoice，第一次要下载约 230 MB。这个模型和你手机上其他 tautiu.dev 的 App 共用，下载一次就好。"),
        ("identity.md 和 soul.md 是什么？", "identity.md 是你是谁——饮食、预算、习惯。soul.md 是你怎么做决定——在意什么、避免什么。每次提问都会一起发送，让答案贴近你。可以自己写，也可以开启「允许自动更新关于我的信息」让 Gemini 每次回答完帮你修订。默认关闭。"),
        ("有东西被存储或分享吗？", "全部留在你手机上：密钥在 Keychain、两个文件、历史记录。仅有的网络连接是你自己发起的那两次，从你的手机直接到 Google 和 OpenRouter，受它们各自的隐私政策约束。")],
-  cta_h="午餐别再想三十分钟了。", cta="即将上架 App Store",
+  cta_h="午餐别再想三十分钟了。", cta="在 App Store 下载",
   footer_privacy="隐私政策", footer_terms="使用条款", footer_support="支持",
   demo=dict(title="帮我拿主意", storyTabs=["菜单","穿搭","健身房"],
   outfit=dict(pick="加照片", pickHint="最多三张", garments=[("深蓝西装外套","navy"),("米色针织","beige"),("黑色连衣裙","black")],
@@ -378,7 +378,7 @@ def legal(slug, title, desc, body_html):
 
 
 PRIVACY = f"""
-  <div class="card"><p><strong>The short version:</strong> WDYT has no servers and no accounts. Speech is recognised on your device. The only network calls are the two you initiate — understanding your question with Google Gemini, and deciding with TypeSafe Jev via OpenRouter — and both go straight from your phone to that provider, with your own API keys.</p></div>
+  <div class="card"><p><strong>The short version:</strong> WDYT has no servers and no accounts. Speech is recognised on your device. The only network calls are the two you initiate — understanding your question with Google Gemini or OpenAI, and deciding with TypeSafe Jev via OpenRouter or TypeSafe directly — and both go straight from your phone to the provider you picked in Settings, with your own API keys.</p></div>
 
   <h2>What we collect</h2>
   <p>Nothing that identifies you. WDYT has no accounts, no analytics SDKs, no advertising, and no third-party trackers. We operate no server that your device talks to.</p>
@@ -387,13 +387,13 @@ PRIVACY = f"""
   <p>When you record, your speech is transcribed on the device: English with Apple's Speech framework (depending on your device and iOS settings Apple may process speech on its servers under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>), Mandarin with the SenseVoice model running locally via sherpa-onnx. WDYT does not store audio; the transcript exists only for the current question and you can edit it before anything is sent.</p>
 
   <h2>Photos</h2>
-  <p>Photos you attach are resized on the device (longest edge 1280 px) and sent only to Google Gemini as part of understanding your question, using your own key. They are never sent to the decision model or anywhere else, and are discarded when you start a new question. WDYT does not access your photo library beyond the pictures you pick.</p>
+  <p>Photos you attach are resized on the device (longest edge 1280 px) and sent only to the generator you picked (Google Gemini or OpenAI) as part of understanding your question, using your own key. They are never sent to the decision model or anywhere else, and are discarded when you start a new question. WDYT does not access your photo library beyond the pictures you pick.</p>
 
   <h2>Your API keys and the two providers</h2>
-  <p>WDYT works with two keys you paste in Settings. Your <strong>Gemini API key</strong> is used to send your transcribed words, your photos and your profile (see below) directly to Google under <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Your <strong>OpenRouter API key</strong> is used to send the confirmed question, options and profile directly to OpenRouter, which routes it to TypeSafe's Jev model, under <a href="https://openrouter.ai/privacy">OpenRouter's</a> and <a href="https://docs.typesafe.ai/legal">TypeSafe's</a> policies. Keys are stored in your device's Keychain, never leave the device except to the provider they belong to, and are removed when you clear the field or delete the app. WDYT never receives your keys or your content.</p>
+  <p>WDYT works with two keys you paste in Settings, one per step, each for the provider you select there. <strong>Understanding the question</strong>: with a Gemini API key, your transcribed words, photos and profile (see below) go directly to Google under <a href="https://policies.google.com/privacy">Google's privacy policy</a>; if you turn on Grounding with Google Search, Gemini may also run web searches for the question. With an OpenAI API key, the same content goes directly to OpenAI under <a href="https://openai.com/policies/privacy-policy/">OpenAI's privacy policy</a>. <strong>Deciding</strong>: with an OpenRouter API key, the confirmed question, options and profile go directly to OpenRouter, which routes them to TypeSafe's Jev model, under <a href="https://openrouter.ai/privacy">OpenRouter's</a> and <a href="https://docs.typesafe.ai/legal">TypeSafe's</a> policies; with a TypeSafe API key, they go directly to TypeSafe under <a href="https://docs.typesafe.ai/legal">TypeSafe's</a> policies. Only the provider selected for each step receives anything. Keys are stored in your device's Keychain, never leave the device except to the provider they belong to, and are removed when you clear the field or delete the app. WDYT never receives your keys or your content.</p>
 
   <h2>Your profile: identity.md and soul.md</h2>
-  <p>Two plain-text files on your device describe your preferences and how you decide. You can write, edit or clear them in Settings at any time. They are included in the requests above so answers fit you. If you turn on <em>update these from my questions</em> (off by default), after each answer your question and edits are sent to Gemini with your key, which returns revised files; nothing else is stored, and the setting can be turned off at any time.</p>
+  <p>Two plain-text files on your device describe your preferences and how you decide. You can write, edit or clear them in Settings at any time. They are included in the requests above so answers fit you. If you turn on <em>update these from my questions</em> (off by default), after each answer your question and edits are sent to the generator you picked (Gemini or OpenAI) with your key, which returns revised files; nothing else is stored, and the setting can be turned off at any time.</p>
 
   <h2>Data stored on your device</h2>
   <p>Settings, the two profile files, your recent decisions and the downloaded SenseVoice model live on your device. The SenseVoice model is stored in a shared container so other apps from the same developer (tautiu.dev) can use the same copy. Deleting the app removes its data; the shared model remains until the last app using it is removed.</p>
@@ -415,7 +415,7 @@ TERMS = f"""
   <p>WDYT is software that helps you phrase a question and obtain a suggestion from third-party AI models. It provides no advice of its own and no professional services of any kind.</p>
 
   <h2>Your own API keys</h2>
-  <p>WDYT requires your own accounts with Google (Gemini) and OpenRouter (for TypeSafe Jev). Their terms, pricing and availability apply; any charges they bill are yours. WDYT is not a party to those relationships and cannot see or recover your keys.</p>
+  <p>WDYT requires your own accounts with the providers you choose: Google (Gemini) or OpenAI for understanding, and OpenRouter or TypeSafe for the Jev decision. Their terms, pricing and availability apply; any charges they bill are yours. WDYT is not a party to those relationships and cannot see or recover your keys.</p>
 
   <h2>Content and models</h2>
   <p>Questions, options and answers are generated by third-party models from your input. They may be inaccurate, incomplete or inappropriate. Confidence figures are the model's own estimate, not a guarantee. You are responsible for what you ask and what you do with the answer.</p>
@@ -444,7 +444,7 @@ SUPPORT = f"""
   <p>Email <a href="mailto:{MAIL}">{MAIL}</a>. Include your iOS version and, if it concerns a specific answer, a screenshot of the confirm screen.</p>
 
   <h2>Common questions</h2>
-  <p><strong>"Add your Gemini API key" / "Add your OpenRouter API key".</strong> WDYT needs both. Get a Gemini key at <a href="https://aistudio.google.com/apikey">Google AI Studio</a> (starts with "AIza") and an OpenRouter key at <a href="https://openrouter.ai/keys">openrouter.ai/keys</a> (starts with "sk-or-"). Paste each in Settings and tap Test.</p>
+  <p><strong>"Add your … API key".</strong> WDYT needs one key per step, for the provider selected in Settings. ① Intent engine: a Gemini key from <a href="https://aistudio.google.com/apikey">Google AI Studio</a> (starts with "AIza"), or an OpenAI key from <a href="https://platform.openai.com/api-keys">platform.openai.com</a> (starts with "sk-"). ② Decision engine: an OpenRouter key from <a href="https://openrouter.ai/keys">openrouter.ai/keys</a> (starts with "sk-or-"), or a TypeSafe key from <a href="https://console.typesafe.ai/keys">console.typesafe.ai</a>. Paste each and tap Test. If a key is in the wrong field, Settings says so and offers to move it.</p>
   <p><strong>The app didn't hear me.</strong> In hold mode, keep the button pressed for the whole sentence. In tap mode, tap once to start and again to finish. Check Settings → Privacy &amp; Security → Microphone and Speech Recognition are on for WDYT.</p>
   <p><strong>Chinese recognition is poor or asks for a download.</strong> Mandarin uses the SenseVoice model (~230 MB). Download it in Settings → Speech engine, ideally on Wi-Fi. Until then Apple's recogniser is used.</p>
   <p><strong>It misread my menu.</strong> On the confirm screen, edit "What I picked up" and the options before confirming — the decision model only ever sees that text.</p>

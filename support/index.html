@@ -223,13 +223,13 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 <main class="legal">
   <a class="home" href="/">← WDYT</a>
   <h1>Support</h1>
-  <div class="updated">Last updated: September 18, 2026 · Applies to WDYT for iOS</div>
+  <div class="updated">Last updated: October 13, 2026 · Applies to WDYT for iOS</div>
 
   <h2>Contact</h2>
   <p>Email <a href="mailto:tautiu.dev+wdyt@gmail.com">tautiu.dev+wdyt@gmail.com</a>. Include your iOS version and, if it concerns a specific answer, a screenshot of the confirm screen.</p>
 
   <h2>Common questions</h2>
-  <p><strong>"Add your Gemini API key" / "Add your OpenRouter API key".</strong> WDYT needs both. Get a Gemini key at <a href="https://aistudio.google.com/apikey">Google AI Studio</a> (starts with "AIza") and an OpenRouter key at <a href="https://openrouter.ai/keys">openrouter.ai/keys</a> (starts with "sk-or-"). Paste each in Settings and tap Test.</p>
+  <p><strong>"Add your … API key".</strong> WDYT needs one key per step, for the provider selected in Settings. ① Intent engine: a Gemini key from <a href="https://aistudio.google.com/apikey">Google AI Studio</a> (starts with "AIza"), or an OpenAI key from <a href="https://platform.openai.com/api-keys">platform.openai.com</a> (starts with "sk-"). ② Decision engine: an OpenRouter key from <a href="https://openrouter.ai/keys">openrouter.ai/keys</a> (starts with "sk-or-"), or a TypeSafe key from <a href="https://console.typesafe.ai/keys">console.typesafe.ai</a>. Paste each and tap Test. If a key is in the wrong field, Settings says so and offers to move it.</p>
   <p><strong>The app didn't hear me.</strong> In hold mode, keep the button pressed for the whole sentence. In tap mode, tap once to start and again to finish. Check Settings → Privacy &amp; Security → Microphone and Speech Recognition are on for WDYT.</p>
   <p><strong>Chinese recognition is poor or asks for a download.</strong> Mandarin uses the SenseVoice model (~230 MB). Download it in Settings → Speech engine, ideally on Wi-Fi. Until then Apple's recogniser is used.</p>
   <p><strong>It misread my menu.</strong> On the confirm screen, edit "What I picked up" and the options before confirming — the decision model only ever sees that text.</p>
